@@ -1,0 +1,15 @@
+{
+    "name": "iip-design/america-api-client",
+    "type": "wordpress-plugin",
+    "description" : "Wordpress plugin for consuming the America API",
+    "authors": [
+        {
+            "name": "Office of Design, U.S. Department of State",
+            "email": "design@america.gov"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+       "composer/installers": "~1.0"
+    }
+}
