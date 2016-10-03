@@ -25,31 +25,27 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-america-api-client-activator.php
- */
-function activate_plugin_name() {
+// Define constants
+define( 'AMERICA_API_CLIENT_DIR', plugin_dir_path( dirname( __FILE__ ) ) . 'america-api-client/' );
+define( 'AMERICA_API_CLIENT_URL', plugin_dir_url( dirname( __FILE__ ) ) . 'america-api-client/' );
+
+
+function activate_america_api_client() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-america-api-client-activator.php';
 	America_API_Client_Activator::activate();
 }
 
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-america-api-client-deactivator.php
- */
-function deactivate_plugin_name() {
+
+function deactivate_america_api_client() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-america-api-client-deactivator.php';
 	America_API_Client_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
+register_activation_hook( __FILE__, 'activate_america_api_client' );
+register_deactivation_hook( __FILE__, 'deactivate_america_api_client' );
+
+
 require plugin_dir_path( __FILE__ ) . 'includes/class-america-api-client.php';
 
 /**
@@ -61,10 +57,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-america-api-client.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_america_api_client() {
 
 	$plugin = new America_API_Client();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_america_api_client();
