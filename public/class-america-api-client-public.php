@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/IIP-Design/America-API-Client
  * @since      1.0.0
  *
  * @package    America_API_Client
@@ -18,7 +18,7 @@
  *
  * @package    America_API_Client
  * @subpackage America_API_Client/public
- * @author     Your Name <email@example.com>
+ * @author     Office of Design, U.S. Department of State <https://github.com/IIP-Design>
  */
 class America_API_Client_Public {
 

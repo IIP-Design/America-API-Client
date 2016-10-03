@@ -5,7 +5,7 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/IIP-Design/America-API-Client
  * @since      1.0.0
  *
  * @package    America_API_Client

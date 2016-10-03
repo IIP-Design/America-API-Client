@@ -1,24 +1,19 @@
 <?php
 
 /**
- * The plugin bootstrap file
+ * A Wordpress plugin for consuming the America API
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              http://example.com
+ * @link              https://github.com/IIP-Design/America-API-Client
  * @since             1.0.0
  * @package           America_API_Client
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/america-api-client-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       America API Client
+ * Plugin URI:        https://github.com/IIP-Design/America-API-Client
+ * Description:       A Wordpress plugin for consuming the America API
  * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Author:            Office of Design, U.S. Department of State
+ * Author URI:        https://github.com/IIP-Design
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       america-api-client

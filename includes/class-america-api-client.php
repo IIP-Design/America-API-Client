@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://example.com
+ * @link       https://github.com/IIP-Design/America-API-Client
  * @since      1.0.0
  *
  * @package    America_API_Client
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    America_API_Client
  * @subpackage America_API_Client/includes
- * @author     Your Name <email@example.com>
+ * @author     Office of Design, U.S. Department of State <https://github.com/IIP-Design>
  */
 class America_API_Client {
 
