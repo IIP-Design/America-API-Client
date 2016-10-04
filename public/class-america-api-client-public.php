@@ -93,29 +93,22 @@ class America_API_Client_Public {
 	 * @since    1.0.0
 	 */
 
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in America_API_Client_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The America_API_Client_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/america-api-client-public.js', array( 'jquery' ), $this->version, false );
-	}
-
-
   public function america_api_client_shortcode_javascript() {
     global $post;
 
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-      wp_enqueue_script( 'hello', AMERICA_API_CLIENT_URL . '/public/js/hello.js', array(), $this->version, true );
+      $this->america_api_client_javascript_enqueue();
+    }
+  }
+
+
+  private function america_api_client_javascript_enqueue() {
+    $url = get_option( 'america_api_client_endpoint_url' );
+
+    wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . '/public/js/america-api-client-public.js', array(), $this->version, true );
+
+    if ( $url !== "" ) {
+      wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
     }
   }
 }

@@ -111,6 +111,23 @@ class America_API_Client_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/america-api-client-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
+
+  public function activation_notification() {
+    $api_url_field = get_option( 'america_api_client_endpoint_url' );
+
+    if ( $api_url_field  === "" ) {
+      $url = admin_url( 'options-general.php?page=america-api-client' );
+      $message = sprintf(
+        __( '<p>The API URL field is required. Visit the America API Client <a href="%s">settings page</a>.', 'america-api-client' ), esc_url( $url ) );
+
+      $html = '<div class="notice notice-warning is-dismissible">';
+        $html .= $message;
+      $html .= '</div>';
+
+      echo $html;
+    }
+  }
+
   /**
    * Add settings page under the Settings menu
    *
@@ -149,7 +166,7 @@ class America_API_Client_Admin {
 
     register_setting( $this->plugin_name, 'america_api_client_oauth_key', 'sanitize_text_field' );
     register_setting( $this->plugin_name, 'america_api_client_oauth_secret', 'sanitize_text_field' );
-    register_setting( $this->plugin_name, 'america_api_client_endpoint_url', 'sanitize_text_field' );
+    register_setting( $this->plugin_name, 'america_api_client_endpoint_url', array( $this, 'endpoint_url_sanitize' ) );
   }
 
 
@@ -192,12 +209,20 @@ class America_API_Client_Admin {
       $html .= '<input type="text" ';
         $html .= 'name="america_api_client_endpoint_url" ';
         $html .= 'id="america_api_client_endpoint_url" ';
-        $html .= 'placeholder="http://courses.america.gov/wp-json/wp/v2/" ';
+        $html .= 'placeholder="http://courses.america.gov/wp-json/wp/v2" ';
         $html .= 'class="america-api-client-textfield" ';
         $html .= 'value="' . $api_url .'">';
     $html .= '</fieldset>';
 
     echo $html;
+  }
+
+
+  public function endpoint_url_sanitize( $input ) {
+    $data = sanitize_text_field( $input );
+    $result = untrailingslashit( $data );
+
+    return $result;
   }
 
 
