@@ -10,6 +10,9 @@
  * @subpackage America_API_Client/public
  */
 
+
+
+
 /**
  * The public-facing functionality of the plugin.
  *
@@ -20,6 +23,7 @@
  * @subpackage America_API_Client/public
  * @author     Office of Design, U.S. Department of State <https://github.com/IIP-Design>
  */
+
 class America_API_Client_Public {
 
 	/**
@@ -29,7 +33,9 @@ class America_API_Client_Public {
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
+
 	private $plugin_name;
+
 
 	/**
 	 * The version of this plugin.
@@ -38,7 +44,9 @@ class America_API_Client_Public {
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
+
 	private $version;
+
 
 	/**
 	 * Initialize the class and set its properties.
@@ -47,18 +55,20 @@ class America_API_Client_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
+
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
+
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
+
 	public function enqueue_styles() {
 
 		/**
@@ -74,14 +84,15 @@ class America_API_Client_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/america-api-client-public.css', array(), $this->version, 'all' );
-
 	}
+
 
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
+
 	public function enqueue_scripts() {
 
 		/**
@@ -97,7 +108,14 @@ class America_API_Client_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/america-api-client-public.js', array( 'jquery' ), $this->version, false );
-
 	}
 
+
+  public function america_api_client_shortcode_javascript() {
+    global $post;
+
+    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
+      wp_enqueue_script( 'hello', AMERICA_API_CLIENT_URL . '/public/js/hello.js', array(), $this->version, true );
+    }
+  }
 }

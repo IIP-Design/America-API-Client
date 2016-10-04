@@ -2,3 +2,8 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+.america-api-client-textfield {
+  padding: 0.35em;
+  width: 80%;
+}
