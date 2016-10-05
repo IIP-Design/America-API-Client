@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:IIP-Design/Courses-Module.git
+	branch = master
+	commit = df81faae4e775fcef3658bd4e1a38aedda03fb18
+	parent = 28f0c7dc0fc9c2c180612fc7a7e6de80a5cc75fa
+	cmdver = 0.3.0
