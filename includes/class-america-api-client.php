@@ -166,7 +166,6 @@ class America_API_Client {
 	 */
 
 	private function define_admin_hooks() {
-
 		$plugin_admin = new America_API_Client_Admin( $this->get_plugin_name(), $this->get_version() );
 
     $this->loader->add_action( 'init', $plugin_admin, 'america_api_client_added_shortcodes' );
@@ -188,11 +187,9 @@ class America_API_Client {
 	 */
 
 	private function define_public_hooks() {
-
 		$plugin_public = new America_API_Client_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'america_api_client_shortcode_javascript' );
+    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 	}
 
 

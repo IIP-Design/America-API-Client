@@ -64,51 +64,40 @@ class America_API_Client_Public {
 
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in America_API_Client_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The America_API_Client_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/america-api-client-public.css', array(), $this->version, 'all' );
-	}
-
-
-	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
 
-  public function america_api_client_shortcode_javascript() {
+  public function enqueue_scripts() {
     global $post;
 
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-      $this->america_api_client_javascript_enqueue();
+      $this->react_enqueue_and_localize();
     }
   }
 
 
-  private function america_api_client_javascript_enqueue() {
+  private function react_enqueue_and_localize() {
     $url = get_option( 'america_api_client_endpoint_url' );
 
-    wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . '/public/js/america-api-client-public.js', array(), $this->version, true );
-
     if ( $url !== "" ) {
+      $this->enqueue_hashed_file();
       wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
     }
+  }
+
+
+  private function enqueue_hashed_file() {
+    $dir = 'public/course-module/js/dist/';
+    $files = new DirectoryIterator( AMERICA_API_CLIENT_DIR . $dir );
+
+    foreach( $files as $file ) {
+      if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'js' ) {
+        $file_name = basename( $file );
+      }
+    }
+
+    wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . $dir . $file_name, array(), null, true );
   }
 }
