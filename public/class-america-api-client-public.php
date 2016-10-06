@@ -16,9 +16,6 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
  * @package    America_API_Client
  * @subpackage America_API_Client/public
  * @author     Office of Design, U.S. Department of State <https://github.com/IIP-Design>
@@ -57,7 +54,6 @@ class America_API_Client_Public {
 	 */
 
 	public function __construct( $plugin_name, $version ) {
-
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 	}
@@ -78,6 +74,12 @@ class America_API_Client_Public {
   }
 
 
+  /**
+   * Enqueue the hashed React course file and pass the API URL to the script
+   *
+   * @since   1.0.0
+   */
+
   private function react_enqueue_and_localize() {
     $url = get_option( 'america_api_client_endpoint_url' );
 
@@ -87,6 +89,12 @@ class America_API_Client_Public {
     }
   }
 
+
+  /**
+   * Get the filename, which has a hash added for cache busting
+   *
+   * @since   1.0.0
+   */
 
   private function enqueue_hashed_file() {
     $dir = 'public/course-module/js/dist/';

@@ -20,6 +20,7 @@
  * Domain Path:       /languages
  */
 
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -48,6 +49,7 @@ register_deactivation_hook( __FILE__, 'deactivate_america_api_client' );
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-america-api-client.php';
 
+
 /**
  * Begins execution of the plugin.
  *
@@ -57,10 +59,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-america-api-client.php';
  *
  * @since    1.0.0
  */
-function run_america_api_client() {
 
+function run_america_api_client() {
 	$plugin = new America_API_Client();
 	$plugin->run();
-
 }
+
 run_america_api_client();

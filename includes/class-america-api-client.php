@@ -39,8 +39,9 @@ class America_API_Client {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
+	 *
 	 * @var      America_API_Client_Loader    $loader    Maintains and registers all hooks for the plugin.
-	 */
+   */
 
 	protected $loader;
 
@@ -78,7 +79,6 @@ class America_API_Client {
 	 */
 
 	public function __construct() {
-
 		$this->plugin_name = 'america-api-client';
 		$this->version = '1.0.0';
 
@@ -150,7 +150,6 @@ class America_API_Client {
 	 */
 
 	private function set_locale() {
-
 		$plugin_i18n = new America_API_Client_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
@@ -174,7 +173,6 @@ class America_API_Client {
     $this->loader->add_action( 'admin_notices', $plugin_admin, 'activation_notification' );
     $this->loader->add_action( 'admin_menu', $plugin_admin, 'added_options_page' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 	}
 
 

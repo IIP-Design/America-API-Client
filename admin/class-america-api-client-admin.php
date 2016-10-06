@@ -71,62 +71,34 @@ class America_API_Client_Admin {
 	 */
 
 	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in America_API_Client_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The America_API_Client_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/america-api-client-admin.css', array(), $this->version, 'all' );
 	}
 
 
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in America_API_Client_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The America_API_Client_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/america-api-client-admin.js', array( 'jquery' ), $this->version, false );
-	}
-
+  /**
+   * Warn admins to fill out the API URL field in the plugin settings page
+   *
+   * @since   1.0.0
+   */
 
   public function activation_notification() {
     $api_url_field = get_option( 'america_api_client_endpoint_url' );
 
     if ( $api_url_field  === "" ) {
-      $url = admin_url( 'options-general.php?page=america-api-client' );
-      $message = sprintf(
-        __( '<p>The API URL field is required. Visit the America API Client <a href="%s">settings page</a>.', 'america-api-client' ), esc_url( $url ) );
+      if ( is_admin() ) {
+        $url = admin_url( 'options-general.php?page=america-api-client' );
+        $message = sprintf(
+          __( '<p>The API URL field is required. Visit the America API Client <a href="%s">settings page</a>.', 'america-api-client' ), esc_url( $url ) );
 
-      $html = '<div class="notice notice-warning is-dismissible">';
-        $html .= $message;
-      $html .= '</div>';
+        $html = '<div class="notice notice-warning is-dismissible">';
+          $html .= $message;
+        $html .= '</div>';
 
-      echo $html;
+        echo $html;
+      }
     }
   }
+
 
   /**
    * Add settings page under the Settings menu
@@ -139,6 +111,12 @@ class America_API_Client_Admin {
   }
 
 
+  /**
+   * Add the Oauth Authentication Credentials and API URL sections to the plugin settings page
+   *
+   * @since   1.0.0
+   */
+
   public function added_settings_sections() {
     add_settings_section( __( 'america_api_client_oauth' ), __( 'Oauth1(a) Authentication Credentials' ), function() {
       echo '<p>Enter your authentication credentials. You will first have to register this client with the America API.</p>';
@@ -149,6 +127,12 @@ class America_API_Client_Admin {
     }, $this->plugin_name );
   }
 
+
+  /**
+   * Create and register the fields on the plugin settings page
+   *
+   * @since   1.0.0
+   */
 
   public function added_settings_fields() {
     // Oauth Client Key
@@ -170,6 +154,12 @@ class America_API_Client_Admin {
   }
 
 
+  /**
+   * The html markup for the Oauth Client Key field
+   *
+   * @since   1.0.0
+   */
+
   public function oauth_key_markup() {
     $key = get_option( 'america_api_client_oauth_key' );
 
@@ -185,6 +175,12 @@ class America_API_Client_Admin {
     echo $html;
   }
 
+
+  /**
+   * The html markup for the Oauth Client Secret field
+   *
+   * @since   1.0.0
+   */
 
   public function oauth_secret_key_markup() {
     $secret = get_option( 'america_api_client_oauth_secret' );
@@ -202,6 +198,12 @@ class America_API_Client_Admin {
   }
 
 
+  /**
+   * The html markup for the API URL field
+   *
+   * @since   1.0.0
+   */
+
   public function endpoint_url_markup() {
     $api_url = get_option( 'america_api_client_endpoint_url' );
 
@@ -218,6 +220,12 @@ class America_API_Client_Admin {
   }
 
 
+  /**
+   * Sanitize and formate the API endpoint url
+   *
+   * @since   1.0.0
+   */
+
   public function endpoint_url_sanitize( $input ) {
     $data = sanitize_text_field( $input );
     $result = untrailingslashit( $data );
@@ -225,6 +233,12 @@ class America_API_Client_Admin {
     return $result;
   }
 
+
+  /**
+   * The output of the course shortcode
+   *
+   * @since   1.0.0
+   */
 
   public function america_api_client_courses_shortcode( $args ) {
     $attr = shortcode_atts( array(
@@ -237,10 +251,22 @@ class America_API_Client_Admin {
   }
 
 
+  /**
+   * Register the course shortcode
+   *
+   * @since   1.0.0
+   */
+
   public function america_api_client_added_shortcodes() {
     add_shortcode( 'course', array( $this, 'america_api_client_courses_shortcode' ) );
   }
 
+
+  /**
+   * The admin area view for the plugin settings page
+   *
+   * @since   1.0.0
+   */
 
   public function display_options_partial() {
     include_once AMERICA_API_CLIENT_DIR . 'admin/partials/america-api-client-admin-display.php';

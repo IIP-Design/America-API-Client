@@ -10,6 +10,9 @@
  * @subpackage America_API_Client/includes
  */
 
+
+
+
 /**
  * Fired during plugin activation.
  *
@@ -20,6 +23,7 @@
  * @subpackage America_API_Client/includes
  * @author     Office of Design, U.S. Department of State <https://github.com/IIP-Design>
  */
+
 class America_API_Client_Activator {
 
 	/**
@@ -29,8 +33,6 @@ class America_API_Client_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
 
-	}
-
+	public static function activate() {}
 }
