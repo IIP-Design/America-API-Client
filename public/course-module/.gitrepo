@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:IIP-Design/Courses-Module.git
 	branch = master
-	commit = df81faae4e775fcef3658bd4e1a38aedda03fb18
-	parent = 28f0c7dc0fc9c2c180612fc7a7e6de80a5cc75fa
+	commit = c01d0648fbfa3639a8e9f25404d9bd67bd15a431
+	parent = db110587cd3f2f63b5c1007e0dce2a08b7ee6421
 	cmdver = 0.3.0
