@@ -605,7 +605,32 @@ var data = [
         "title": "Creating a Successful Grassroots Campaign",
         "description": "<p>This lesson provides step-by-step recommendations for building a realistic and achievable movement for change by implementing grassroots campaigns, identifying tasks and delegating responsibility.</p>",
         "excerpt": "<p>This lesson provides step-by-step recommendations for building a realistic and achievable movement for change by implementing grassroots campaigns, identifying tasks and delegating responsibility.</p>",
-        "image": {},
+        "image": {
+          "id": 49,
+          "src": "https://placekitten.com/1000/500",
+          "width": 1000,
+          "height": 500,
+          "title": "kitten1000x500",
+          "alt": "alt text",
+          "caption": "<em>Caption</em>",
+          "srcset": [
+            {
+              "width": 800,
+              "height": 533,
+              "src": "https://placekitten.com/800/533",
+            },
+            {
+              "width": 480,
+              "height": 320,
+              "src": "https://placekitten.com/480/320",
+            },
+            {
+              "width": 300,
+              "height": 200,
+              "src": "https://placekitten.com/300/200",
+            }
+          ]
+        },
         "media": {
           "id": 1,
           "title": "CIVIC LEADERSHIP - Creating a Successful Grassroots Campaign",

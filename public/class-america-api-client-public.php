@@ -97,7 +97,7 @@ class America_API_Client_Public {
    */
 
   private function enqueue_hashed_file() {
-    $dir = 'public/course-module/js/dist/';
+    $dir = 'public/course-module/app/dist/';
     $files = new DirectoryIterator( AMERICA_API_CLIENT_DIR . $dir );
 
     foreach( $files as $file ) {
