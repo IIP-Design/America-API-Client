@@ -4,8 +4,8 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = git@github.com:IIP-Design/Courses-Module.git
+	remote = https://github.com/IIP-Design/Courses-Module.git
 	branch = master
-	commit = c01d0648fbfa3639a8e9f25404d9bd67bd15a431
-	parent = db110587cd3f2f63b5c1007e0dce2a08b7ee6421
+	commit = 4f8ed3ad8dcfffa587d9343c0789ffba1105fa95
+	parent = 5487da4e8696f913559ab2e2fa06016d5cc917e5
 	cmdver = 0.3.0

@@ -1,0 +1,126 @@
+{
+  "id": "1",
+  "title": "Organizing Grassroots Advocacy Campaigns",
+  "description": "string",
+  "excerpt": "On your own, you can have a positive impact on your community, but when you recruit, organize and lead others, you can really make a difference. In this course, you will learn guidelines and best practices for creating a successful grassroots campaign—from defining your cause to building and training your team to becoming an influential force that drives positive change.",
+  "media": {
+    "id": 0,
+    "url": "https://yali.state.gov/wp-content/uploads/sites/4/2016/07/23535260340_985db61494_o.jpg",
+    "format": "image"
+  },
+  "lessons": [
+    {
+      "id": "1",
+      "title": "Grassroots Organizing For Civic Engagement",
+      "description": "This lesson provides step-by-step recommendations for building a realistic and achievable movement for change by implementing grassroots campaigns, identifying tasks and delegating responsibility.",
+      "excerpt": "",
+      "media": {
+        "id": 1,
+        "url": "https://youtu.be/4GL9_y2jj5I",
+        "format": "video",
+        "duration": "412"
+      },
+      "media": {
+        "id": 2,
+        "url": "https://yali.edit.america.gov/wp-content/uploads/sites/4/2016/01/YALIN_BUFFY_AUDIO.mp3",
+        "format": "audio",
+        "duration": "412"
+      },
+      "transcript": "The most critical component of grassroots organizing is great leadership. Leaders have a plan, with specific goals, a timeline, and clearly defined measures of success. Leaders bring people together. They provide vision and ensure that everyone is working in common purpose and that everyone knows their respective roles. They create infrastructure for their cause by delegating specific tasks to others. They do what they say and give others a chance to be successful.",
+      "resources": [
+        {
+          "id": 1,
+          "title": "Discussion Guides and Course Materials",
+          "description": "Ready to take the next step? Organize a #YALILearns event! Download discussion guides and course materials.",
+          "url": "https://yali.state.gov/courses/downloads/civic.pdf",
+          "type": "Discussion Guide"
+        },
+        {
+          "id": 2,
+          "title": "FAQs",
+          "description": "Frequently Asked Questions",
+          "url": "https://yali.state.gov/courses/faq/faq.html",
+          "type": "General Resource"
+        },
+        {
+          "id": 3,
+          "title": "US Elections - Election Day Democracy in Action (PDF)",
+          "url": "https://yali.state.gov/wp-content/uploads/sites/4/2016/01/US-Elections-Election-Day-Democracy-in-Action.pdf",
+          "type": "General Resource"
+        }
+      ],
+      "glossary": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string"
+        }
+      ],
+      "tags": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string"
+        }
+      ],
+      "instructors": [
+        {
+          "id": 1,
+          "title": "Evan Burfield",
+          "bio": "Evan Burfield​ is a cofounder of 1776, driven by his passionate belief in entrepreneurship as the engine for solving the major problems facing America and the world today—from education to energy efficiency. In 1996 he founded netDecide, shortly after graduating from the Thomas Jefferson High School for Science and Technology. ",
+          "media": {
+            "id": 0,
+            "url": "https://yali.state.gov/wp-content/uploads/sites/4/2015/03/burfield-e1424970617431-150x150.png",
+            "format": "image"
+          }
+        },
+         {
+          "id": 2,
+          "title": "Claude Grunitzky",
+          "bio": "Claude Grunitzky ​is the founder of TRACE TV, the first multinational media company focused exclusively on producing, aggregating, distributing and promoting urban music and culture via digital media and special events around the world.",
+          "media": {
+            "id": 0,
+            "url": "https://yali.state.gov/wp-content/uploads/sites/4/2015/03/sq_grunitzky-150x150.jpg",
+            "format": "image"
+          }
+        }
+      ],
+      "quiz": [
+        {
+          "id": 1,
+          "questionType": "mc",
+          "text": "The critical elements of any successful grassroots organization or campaign are:",
+          "choices": [
+            {
+              "text": "List building",
+              "correct": false
+            },
+            {
+              "text": "Strategic planning",
+              "correct": true
+            },
+            {
+              "text": "Leadership",
+              "correct": false
+            }
+          ],
+          "feedback": [
+            {
+              "order": 0,
+              "text": "string",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Learn To Lead",
+      "description": "string"
+    }
+  ]
+
+}
