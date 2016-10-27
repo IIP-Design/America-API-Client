@@ -153,13 +153,19 @@ const Lesson = withRouter(React.createClass({
     }
 
     if (lesson.position === 'first') {
-      return this.next();
+      return (
+        <div>
+          { this.next() }
+        </div>
+      );
     }
 
     if (lesson.position !== 'first' && lesson.position !== 'last') {
       return (
-        this.previous(),
-        this.next()
+        <div>
+          { this.previous() }
+          { this.next() }
+        </div>
       );
     }
   },

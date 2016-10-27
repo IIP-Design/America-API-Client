@@ -1,0 +1,40 @@
+@import '../abstracts/all';
+
+.media-object {
+  clear: both;
+  margin: 0 0 1em;
+  overflow: hidden;
+  padding: 1em;
+}
+
+.media-object img {
+  float: left;
+  margin: 0 1em 0 0;
+  overflow: hidden;
+}
+
+.media-object.reversed img {
+  float: right;
+  margin: 0 0 1em;
+}
+
+.media-object header {
+  display: inline-block;
+}
+
+.media-object-title,
+.media-object-description {
+  overflow: hidden;
+}
+
+.media-object-title {
+  margin: 0 0 16px 0;
+}
+
+.media-object-description {
+  margin: 0;
+}
+
+.media-object-description p {
+  margin: 0;
+}

@@ -1,9 +1,11 @@
 const React           = require('react');
 const LessonList      = require('./LessonList');
 const InstructorList  = require('./InstructorList');
-const MediaObject     = require('./components/MediaObject');
 const StepsList       = require('./components/StepsList');
+const Image           = require('./components/Image');
 const _               = require('lodash');
+
+require('../stylesheets/modules/Course.scss');
 
 const Course = React.createClass({
   // Temporary for loading data from a file
@@ -39,13 +41,27 @@ const Course = React.createClass({
   },
 
 
+  rawDescription: function() {
+    return { __html: this.state.data.description };
+  },
+
+
   render: function() {
     const lessons = this.state.data.lessons;
 
     return (
       <div>
         <section className='course-intro'>
-          <MediaObject tag={ 'h4' } reversed={ true }  { ...this.state.data } />
+          <div className='course-intro-feature'>
+            <div className='course-intro-image'>
+              <Image { ...this.state.data.image } />
+              <div className='course-intro-gradient'></div>
+            </div>
+            <div className='course-intro-text'>
+              <h1>{ this.state.data.title }</h1>
+              <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
+            </div>
+          </div>
         </section>
         <StepsList />
         <LessonList lessons={ lessons } />

@@ -2,6 +2,8 @@ const React = require('react');
 const { Link } = require('react-router');
 const Image = require('./Image');
 
+require('../../stylesheets/components/MediaObject.scss');
+
 const MediaObject = React.createClass({
   propTypes: {
     tag: React.PropTypes.string.isRequired,
@@ -32,7 +34,7 @@ const MediaObject = React.createClass({
               <CustomTag className='media-object-title'>{ this.props.title }</CustomTag>
             </Link>
           </header>
-          <p className='media-object-description' dangerouslySetInnerHTML={ this.setDescription() }></p>
+          <div className='media-object-description' dangerouslySetInnerHTML={ this.setDescription() }></div>
         </div>
     );
   }

@@ -1,5 +1,7 @@
 const React = require('react');
 
+require('./Step.scss');
+
 const Step = React.createClass({
   propTypes: {
     className: React.PropTypes.string,
@@ -9,7 +11,7 @@ const Step = React.createClass({
 
   render: function() {
     return (
-      <li className={ this.props.className }><span className="course-step-title">{ this.props.title }</span><span className="course-step-description">{ this.props.children }</span></li>
+      <li className={ this.props.className }><span className="step-title">{ this.props.title }</span><span className="step-description">{ this.props.children }</span></li>
     );
   }
 });

@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192',
+        loader: 'url-loader?limit=8192&name=[path][name].[ext]?[hash]',
         exclude: [path.join(__dirname, 'node_modules')]
       },
       {

@@ -11,7 +11,7 @@ const Button = React.createClass({
   render: function() {
     if (this.props.link) {
       return (
-        <div>
+        <div className={ this.props.className }>
           <Link to={ this.props.link }>
             <input type={ this.props.buttonType } value={ this.props.value } />
           </Link>

@@ -74,6 +74,12 @@ class America_API_Client_Public {
   }
 
 
+  public function set_body_class( $classes ) {
+    $classes[] = 'react-course';
+    return $classes;
+  }
+
+
   /**
    * Enqueue the hashed React course file and pass the API URL to the script
    *

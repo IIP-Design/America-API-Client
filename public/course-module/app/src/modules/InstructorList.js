@@ -1,6 +1,8 @@
 const React       = require('react');
 const MediaObject = require('./components/MediaObject');
 
+require('../stylesheets/modules/InstructorList.scss');
+
 const InstructorList = React.createClass({
   propTypes: {
     instructors: React.PropTypes.array

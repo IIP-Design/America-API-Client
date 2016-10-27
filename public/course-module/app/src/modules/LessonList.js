@@ -1,8 +1,9 @@
 const React = require('react');
 const MediaObject = require('./components/MediaObject');
 const Button = require('./components/Button');
-const Duration = require('./components/Duration');
 const { sprintf } = require('sprintf-js');
+
+require('../stylesheets/modules/LessonList.scss');
 
 const LessonList = React.createClass({
   propTypes: {
@@ -18,20 +19,19 @@ const LessonList = React.createClass({
       const duration = '25min';
 
       return (
-        <li key={ lesson.id }>
+        <li className='lessons-list-item' key={ lesson.id }>
           <MediaObject tag={ 'h4' } link={ link } { ...lesson } />
-          <Button value={ 'Take Lesson' } link={ link } />
-          <Duration duration={ duration } />
+          <Button className='button-wrapper' value={ 'Take Lesson' } link={ link } />
         </li>
       );
     });
 
     return (
-      <section className="lessons-list__ordered">
+      <section className='lessons-list'>
         <header>
           <h3>Course Lessons</h3>
         </header>
-        <ol>
+        <ol className='lessons-list__ordered'>
           { lessons }
         </ol>
       </section>

@@ -7,27 +7,27 @@ var data = [
     "excerpt": "<p>Our neural pathways have become accustomed to your sensory input patterns.</p>",
     "image": {
       "id": 49,
-      "src": "https://placekitten.com/1000/500",
-      "width": 1000,
-      "height": 500,
+      "src": "https://placekitten.com/770/393",
+      "width": 770,
+      "height": 393,
       "title": "kitten1000x500",
       "alt": "alt text",
       "caption": "<em>Caption</em>",
       "srcset": [
         {
-          "width": 800,
-          "height": 533,
-          "src": "https://placekitten.com/800/533",
+          "width": 770,
+          "height": 393,
+          "src": "https://placekitten.com/770/393",
         },
         {
-          "width": 480,
-          "height": 320,
-          "src": "https://placekitten.com/480/320",
+          "width": 380,
+          "height": 196,
+          "src": "https://placekitten.com/380/196",
         },
         {
-          "width": 300,
-          "height": 200,
-          "src": "https://placekitten.com/300/200",
+          "width": 323,
+          "height": 165,
+          "src": "https://placekitten.com/323/165",
         }
       ]
     },
@@ -41,27 +41,17 @@ var data = [
         "excerpt": "<p>A strong body of volunteers can make the difference between success and failure. Learn how to recruit and retain volunteers who are committed to your organization’s mission.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/1000/500",
-          "width": 1000,
-          "height": 500,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
             {
-              "width": 800,
-              "height": 533,
-              "src": "https://placekitten.com/800/533",
-            },
-            {
-              "width": 480,
-              "height": 320,
-              "src": "https://placekitten.com/480/320",
-            },
-            {
-              "width": 300,
-              "height": 200,
-              "src": "https://placekitten.com/300/200",
+              "width": 323,
+              "height": 165,
+              "src": "https://placekitten.com/323/165",
             }
           ]
         },
@@ -108,24 +98,13 @@ var data = [
             "salutation": "Mr.",
             "image": {
               "id": 2,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           },
           {
@@ -135,25 +114,14 @@ var data = [
             "description": "<p>You bet I'm agitated! I may be surrounded by insanity, but I am not insane. You're going to be an interesting companion, Mr. Data. I can't. As much as I care about you, my first duty is to the ship. I'm afraid I still don't understand, sir. Fear is the true enemy, the only enemy. Your shields were failing, sir.</p>",
             "salutation": "Mrs.",
             "image": {
-              "id": 4,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "id": 2,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           }
         ],
@@ -224,27 +192,17 @@ var data = [
         "excerpt": "<p>This lesson demonstrates how to inspire citizens to take positive actions on their collective behalf and maintain their involvement for the long term.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/1000/500",
-          "width": 1000,
-          "height": 500,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
             {
-              "width": 800,
-              "height": 533,
-              "src": "https://placekitten.com/800/533",
-            },
-            {
-              "width": 480,
-              "height": 320,
-              "src": "https://placekitten.com/480/320",
-            },
-            {
-              "width": 300,
-              "height": 200,
-              "src": "https://placekitten.com/300/200",
+              "width": 323,
+              "height": 165,
+              "src": "https://placekitten.com/323/165",
             }
           ]
         },
@@ -292,25 +250,14 @@ var data = [
             "description": "<p>Lina is our youngest instructor. She was born in 2011.</p>",
             "salutation": "Miss",
             "image": {
-              "id": 3,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "id": 2,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           },
           {
@@ -321,24 +268,13 @@ var data = [
             "salutation": "Mr.",
             "image": {
               "id": 2,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           }
         ],
@@ -411,27 +347,27 @@ var data = [
     "excerpt": "<p>On your own, you can have a positive impact on your community, but when you recruit, organize and lead others, you can really make a difference. In this course, you will learn guidelines and best practices for creating a successful grassroots campaign—from defining your cause to building and training your team to becoming an influential force that drives positive change.</p>",
     "image": {
       "id": 49,
-      "src": "https://placekitten.com/1000/500",
-      "width": 1000,
-      "height": 500,
+      "src": "https://placekitten.com/770/393",
+      "width": 770,
+      "height": 393,
       "title": "kitten1000x500",
       "alt": "alt text",
       "caption": "<em>Caption</em>",
       "srcset": [
         {
-          "width": 800,
-          "height": 533,
-          "src": "https://placekitten.com/800/533",
+          "width": 770,
+          "height": 393,
+          "src": "https://placekitten.com/770/393",
         },
         {
-          "width": 480,
-          "height": 320,
-          "src": "https://placekitten.com/480/320",
+          "width": 380,
+          "height": 196,
+          "src": "https://placekitten.com/380/196",
         },
         {
-          "width": 300,
-          "height": 200,
-          "src": "https://placekitten.com/300/200",
+          "width": 323,
+          "height": 165,
+          "src": "https://placekitten.com/323/165",
         }
       ]
     },
@@ -452,27 +388,17 @@ var data = [
         "excerpt": "<p>A strong body of volunteers can make the difference between success and failure. Learn how to recruit and retain volunteers who are committed to your organization’s mission.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/1000/500",
-          "width": 1000,
-          "height": 500,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
             {
-              "width": 800,
-              "height": 533,
-              "src": "https://placekitten.com/800/533",
-            },
-            {
-              "width": 480,
-              "height": 320,
-              "src": "https://placekitten.com/480/320",
-            },
-            {
-              "width": 300,
-              "height": 200,
-              "src": "https://placekitten.com/300/200",
+              "width": 323,
+              "height": 165,
+              "src": "https://placekitten.com/323/165",
             }
           ]
         },
@@ -519,24 +445,13 @@ var data = [
             "salutation": "Mr.",
             "image": {
               "id": 2,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           }
         ],
@@ -607,27 +522,17 @@ var data = [
         "excerpt": "<p>This lesson provides step-by-step recommendations for building a realistic and achievable movement for change by implementing grassroots campaigns, identifying tasks and delegating responsibility.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/1000/500",
-          "width": 1000,
-          "height": 500,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
             {
-              "width": 800,
-              "height": 533,
-              "src": "https://placekitten.com/800/533",
-            },
-            {
-              "width": 480,
-              "height": 320,
-              "src": "https://placekitten.com/480/320",
-            },
-            {
-              "width": 300,
-              "height": 200,
-              "src": "https://placekitten.com/300/200",
+              "width": 323,
+              "height": 165,
+              "src": "https://placekitten.com/323/165",
             }
           ]
         },
@@ -653,25 +558,14 @@ var data = [
             "title": "Nathan Kleekamp",
             "description": "<p>A raw text description of Nathan Kleekamp",
             "image": {
-              "id": 1,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
-              "title": "The featured image title",
-              "alt": "The imgage alt text",
-              "caption": "A caption that might have <em>emphasis</em>",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "id": 2,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
+              "title": "kitten500x500",
+              "alt": "alt texts",
+              "caption": "captions",
+              "srcset": []
             }
           },
           {
@@ -681,25 +575,14 @@ var data = [
             "description": "<p>Born in 2011, Lina is our youngest instructor.</p>",
             "salutation": "Miss",
             "image": {
-              "id": 3,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "id": 2,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           }
         ],
@@ -770,27 +653,17 @@ var data = [
         "excerpt": "<p>This lesson demonstrates how to inspire citizens to take positive actions on their collective behalf and maintain their involvement for the long term.</p>",
         "image": {
           "id": 49,
-          "src": "https://placekitten.com/1000/500",
-          "width": 1000,
-          "height": 500,
+          "src": "https://placekitten.com/323/165",
+          "width": 323,
+          "height": 165,
           "title": "kitten1000x500",
           "alt": "alt text",
           "caption": "<em>Caption</em>",
           "srcset": [
             {
-              "width": 800,
-              "height": 533,
-              "src": "https://placekitten.com/800/533",
-            },
-            {
-              "width": 480,
-              "height": 320,
-              "src": "https://placekitten.com/480/320",
-            },
-            {
-              "width": 300,
-              "height": 200,
-              "src": "https://placekitten.com/300/200",
+              "width": 323,
+              "height": 165,
+              "src": "https://placekitten.com/323/165",
             }
           ]
         },
@@ -838,25 +711,14 @@ var data = [
             "description": "<p>Born in 2011, Lina is our youngest instructor.</p>",
             "salutation": "Miss",
             "image": {
-              "id": 3,
-              "src": "https://placekitten.com/500/500",
-              "width": 500,
-              "height": 500,
+              "id": 2,
+              "src": "https://placekitten.com/126/96",
+              "width": 126,
+              "height": 96,
               "title": "kitten500x500",
               "alt": "alt texts",
               "caption": "captions",
-              "srcset": [
-                {
-                  "width": 300,
-                  "height": 300,
-                  "src": "https://placekitten.com/300/300",
-                },
-                {
-                  "width": 200,
-                  "height": 200,
-                  "src": "https://placekitten.com/300/300",
-                }
-              ]
+              "srcset": []
             }
           }
         ],
