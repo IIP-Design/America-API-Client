@@ -3,10 +3,10 @@ const Step  = require('./Step');
 
 require('../../stylesheets/components/StepsList.scss');
 
-const StepsList = React.createClass({
-  render: function() {
+
+const StepsList = (props) => {
     return (
-      <section>
+       <section>
         <ul className="steps-list">
           <Step className="steps-list__first step" title="Take All Lessons">Watch, listen or read all lessons</Step>
           <Step className="steps-list__second step" title="Pass the Quiz">Answer quiz questions correctly</Step>
@@ -14,7 +14,7 @@ const StepsList = React.createClass({
         </ul>
       </section>
     );
-  }
-});
+};
 
 module.exports = StepsList;
+

@@ -1,18 +1,18 @@
 const React = require('react');
 const { sprintf } = require('sprintf-js');
-const _ = require('lodash');
+const { sortBy } = require('lodash');   // only pull needed functions instead of complete library
 
+const { string, number, array } = React.PropTypes;
 
 const Image = React.createClass({
   propTypes: {
-    src: React.PropTypes.string.isRequired,
-    alt: React.PropTypes.string.isRequired,
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
-    srcset: React.PropTypes.array,
-    media_queries: React.PropTypes.array
+    src: string, //.isRequired,
+    alt: string, //.isRequired,
+    width: number, //.isRequired,
+    height: number, //.isRequired,
+    srcset: array,
+    media_queries: array
   },
-
 
   // @todo: This will definitely need some major work once we know the srcsets, etc
   // Generage the srcset attribute from the widths and srcs provided
@@ -74,11 +74,11 @@ const Image = React.createClass({
     const props = this.props;
 
     // If we don't receive a responsive image array, return early with a default image tag early
-    if (props.srcset.length === 0) {
-      return (
-        <img src={ this.props.src } alt={ this.props.alt } width={ this.props.width } height={ this.props.height } />
-      );
-    }
+    // if (props.srcset.length === 0) {  // srcset is returning as {}} and not an [] so it is failing as {} does not have a length property
+    //   return (
+    //     <img src={ this.props.src } alt={ this.props.alt } width={ this.props.width } height={ this.props.height } />
+    //   );
+    // }
 
     const srcset = this.generateSrcset(props);
     const sizes = this.generateSizes(props);
@@ -100,3 +100,4 @@ const Image = React.createClass({
 Image.defaultProps = { media_queries: [ '25em', '48em', '64em', '75em' ] }
 
 module.exports = Image;
+

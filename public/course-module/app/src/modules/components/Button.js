@@ -1,11 +1,13 @@
 const React = require('react');
 const { Link } = require('react-router');
 
+const { string } = React.PropTypes;
+
 const Button = React.createClass({
   propTypes: {
-    value: React.PropTypes.string.isRequired,
-    link: React.PropTypes.string,
-    buttonType: React.PropTypes.string
+    value: string.isRequired,
+    link: string,
+    buttonType: string
   },
 
   render: function() {
@@ -13,7 +15,7 @@ const Button = React.createClass({
       return (
         <div className={ this.props.className }>
           <Link to={ this.props.link }>
-            <input type={ this.props.buttonType } value={ this.props.value } />
+            <input type={ this.props.buttonType } value={ this.props.value }  />
           </Link>
         </div>
       );
@@ -22,7 +24,6 @@ const Button = React.createClass({
     return (
       <input type={ this.props.buttonType } value={ this.props.value } />
     );
-
   }
 });
 

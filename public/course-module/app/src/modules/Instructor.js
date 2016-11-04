@@ -6,16 +6,11 @@ const Instructor = React.createClass({
     params: React.PropTypes.object
   },
 
-
-  courses: require('../courses'),
-
-
   // Temp function until ajax requests
   getInitialState: function() {
     const instructor = this.getInstructor();
     return { data: instructor };
   },
-
 
   getInstructor: function() {
     const course = this.getThisCourse();

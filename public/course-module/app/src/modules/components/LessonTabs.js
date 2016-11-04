@@ -1,5 +1,6 @@
 const React = require('react');
 const { Tab, Tabs, TabList, TabPanel } = require('react-tabs');
+const shortid = require('shortid');
 
 const LessonTabs = React.createClass({
   propTypes: {
@@ -27,7 +28,7 @@ const LessonTabs = React.createClass({
   render: function() {
     const resources = this.props.resources.map(function(resource) {
       return (
-        <li key={ resource.id }><a href={ resource.url } >{ resource.title }</a></li>
+        <li key={ shortid.generate() }><a href={ resource.url } >{ resource.title }</a></li>
       );
     });
 
