@@ -5,7 +5,7 @@ const reducers =  require('./reducers');
 const { loadState, saveState } = require('./localStorage');
 
 // including thunk middleware in the event we want to return functions for async purposes
-const middleware = [thunk]; 
+const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger())
 }
@@ -18,10 +18,7 @@ const store = createStore(
   reducers,
   persistedState,
   compose(
-  	applyMiddleware(...middleware),
-    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
-  	? window.devToolsExtension()
-  	: f => f
+  	applyMiddleware(...middleware)
   )
 );
 
@@ -31,3 +28,10 @@ store.subscribe (() => {
 });
 
 module.exports = store;
+
+
+/* remove redux dev tools temporariyl
+typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
+? window.devToolsExtension()
+: f => f
+*/

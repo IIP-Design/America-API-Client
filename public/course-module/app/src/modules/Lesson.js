@@ -40,17 +40,19 @@ const Lesson = React.createClass({
     );
   },
 
+
   // Assign the correct next/previous/both buttons
   buttonNav: function() {
     const numLessons = this.props.lessons.length - 1;
     const lessons = this.props.lessons;
     const lessonIndex = this.props.lessonIndex;
-
+		const signup = `${location.protocol}//${location.hostname}/get-quiz-certificate/`;
+		 //<Link to={ 'quiz' }>Go to quiz</Link> (removed for MVP)
     if (lessonIndex === numLessons) {
       return (
         <div>
           { this.getLink(-1, 'Previous Lesson') }
-          <Link to={ 'quiz' }>Go to quiz</Link>
+          <a href={ signup }>Go to Summary</a>
         </div>
       );
     }
@@ -75,7 +77,7 @@ const Lesson = React.createClass({
 
   lessonPagination: function(lesson, index) {
     const cls = ( index === this.props.lessonIndex ) ? 'active' : '';
-    return ( 
+    return (
         <li className={cls} key={ index }>{ index + 1 }</li>
     );
   },
@@ -101,7 +103,7 @@ const Lesson = React.createClass({
           transcript={ props.media.transcript_text }
           resources={ props.resources }
         />
-        <Glossary terms={ props.glossary } />  
+        <Glossary terms={ props.glossary } />
       </div>
     );
   }
@@ -110,8 +112,8 @@ const Lesson = React.createClass({
 const mapStateToProps = (store) => {
   const lesson = store.lesson;
   const course = store.course;
-  const index = _.findIndex(course.lessons, (o) => { 
-    return o.id == lesson.detail.id; 
+  const index = _.findIndex(course.lessons, (o) => {
+    return o.id == lesson.detail.id;
   });
 
   const media = (lesson.media) ? lesson.media : {};
@@ -128,6 +130,6 @@ const mapStateToProps = (store) => {
     resources: lesson.resources || [],  // resources coming in as boolean instead of empty array - this is temp
     glossary: lesson.glossary
   };
-}; 
+};
 
 module.exports = connect(mapStateToProps)(Lesson);

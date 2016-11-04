@@ -1,0 +1,32 @@
+@import '../abstracts/all';
+
+.quiz-question {
+	margin-bottom: 2em;
+}
+
+.quiz-question-text {
+	margin-bottom: .5em;
+
+	> p {
+		display: inline;
+	}
+}
+.question-choices {
+
+}
+
+.correct:after {
+	content: '\2713';
+	color: #00e500;
+	font-size: 1.3em;
+}
+
+.incorrect:after {
+	content: '\2718';
+	color: red;
+	font-size: 1.3em
+}
+
+.form-select {
+
+}

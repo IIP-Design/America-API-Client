@@ -9,14 +9,14 @@ const QuestionList = React.createClass({
     questions: array
   },
 
-  renderQuestion (question) {
+  renderQuestion (question, i) {
     // Note: Sending qid as Question cannot access key.  We need the qid to construct common group name for each choice
     return (
-    	<Question 
-    		key={ shortid.generate() } 
-    		qid={ question.id } 		
-    		text={ question.text } 
-    		choices={ question.choices } 
+    	<Question
+    		key={ shortid.generate() }
+    		qid={ i }
+    		text={ question.text }
+    		choices={ question.choices }
     	/>
     )
   },
@@ -26,9 +26,9 @@ const QuestionList = React.createClass({
 			listStyle: 'none',
 			margin: 30
 		};
-  
+
 		return (
-			<ol style={ listStyle } className='quiz-questions'>
+			<ol style={ listStyle }>
         { this.props.questions.map(this.renderQuestion) }
       </ol>
 		);

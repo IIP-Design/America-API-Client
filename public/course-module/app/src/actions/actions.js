@@ -7,7 +7,7 @@ function getData(data) {
   var result = keys.map((key) => {
     return data[key];
   })
-  
+
   return result;
 }
 
@@ -81,13 +81,14 @@ export function setQuiz(quiz) {
 // add user answer to userAnswers
 export function answerQuestion(questionId) {
   const re = /^(q\d+)c(\d+)/;
-  const match = questionId.match(re); 
+  const match = questionId.match(re);
   return {
     type: types.ANSWER_QUESTION,
-    payload:  { 
-      question: match[1], 
-      answer: match[2] }
+    payload:  {
+      question: match[1],
+      answer: match[2]
+    }
   };
 }
 
-    
+

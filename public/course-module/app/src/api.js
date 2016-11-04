@@ -8,20 +8,20 @@ const shortid = require('shortid');
 
 const ENDPOINT = `${args.url}/courses/`;  // from wp clinet plugin
 
+// Generates unique ids
+const generateID = () => {
+	return shortid.generate();
+}
 // normalization schemas
 const courseSchema 			 			= new Schema('course');
 const lessonSchema     	 			= new Schema('lessons');
 const quizSchema   			 			= new Schema('quiz');
 const instructorSchema 	 			= new Schema('instructors');
 
-// Generates unique ids
-const generateID = () => {
-	return shortid.generate();
-}
 
 lessonSchema.define({
   instructors: arrayOf(instructorSchema),
-  quiz: arrayOf(quizSchema)  // idAttribute
+  //quiz: arrayOf(quizSchema)  // idAttribute
 });
 
 courseSchema.define({
@@ -39,6 +39,17 @@ hashHistory.listen((e) => {
   	getLesson(match[1]);  // index 1 has the slug in the first capturing group $1
   }
 });
+
+const generateQuestions = (lessons ) => {
+	var result = [];
+	lessons.map((lesson) => {
+		lesson.quiz.map((quiz) => {
+				result.push(quiz);
+		})
+	})
+	return result;
+};
+
 
 /**
  * Get lesson from redux store by using its slug to find in lessons array
@@ -65,7 +76,8 @@ export function getCourse(id) {
   return axios.get(endpoint)
 	  .then(response => {
 	  	const normalized = normalize(response.data.courses, courseSchema);
-	  	const quiz = normalized.entities.quiz;
+	  	//const quiz = normalized.entities.quiz; // normalizr accting odd-needs work, failing back to standard array
+	  	const quiz = generateQuestions(response.data.courses.lessons);
 	   	dispatch( fetchCourseComplete(normalized));
 
 	    if(quiz) {
