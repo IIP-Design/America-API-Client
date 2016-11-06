@@ -29,7 +29,7 @@ const LessonList = React.createClass({
 
       return (
         <li className='lessons-list-item' key={ lesson.id }>
-          <MediaObject  tag={ 'h4' } link={ `lesson/${link}` } { ...lesson } />
+          <MediaObject  tag={ 'h3' } link={ `lesson/${link}` } { ...lesson } />
           <Link to={ `lesson/${link}` } onClick={ this.handleClick } id={ link }>Take Lesson</Link>
         </li>
       );

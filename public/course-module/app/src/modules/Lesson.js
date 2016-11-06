@@ -93,7 +93,7 @@ const Lesson = React.createClass({
       <div>
         <h2>{ props.lesson.title }</h2>
         <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
-        <YouTube videoId={ props.video.video_id  } />
+        <YouTube videoId={ props.video.video_id  } className='lesson-video' />
         { this.buttonNav() }
         <ul className='lesson-pagination'>
           { this.props.lessons.map(this.lessonPagination) }

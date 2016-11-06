@@ -17,11 +17,11 @@
   }
 }
 
-.step-title {
+.course-step-title {
   font-weight: bold;
 }
 
-.step-description {
+.course-step-description {
   margin-left: 0.5em;
 
   @include bp($tablet) {
@@ -40,7 +40,7 @@
   @include bp($tablet) {
     float: left;
     margin: 0;
-    width: 33%;
+    width: 30%;
   }
 }
 

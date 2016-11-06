@@ -46,7 +46,7 @@ const Course = React.createClass({
         </section>
         <StepsList />
         <LessonList lessons={ props.lessons } />
-        <InstructorList instructors={ props.instructors } /> // this is a resrt
+        <InstructorList instructors={ props.instructors } />
       </div>
     );
   }

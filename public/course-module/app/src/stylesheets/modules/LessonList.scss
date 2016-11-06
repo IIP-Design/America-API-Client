@@ -19,17 +19,21 @@ $width: 50;
   padding: 0 0 0 em($width);
 }
 
-/*
- * The line connecting the lesson numbers
- *
+
+//The line connecting the lesson numbers
 .lessons-list__ordered::before {
   border-left: $border;
   content: '';
-  height: 67%;
   left: em($width - $halfRadius);
   position: absolute;
-  top: em(150);
-} */
+  height: 60%;
+  top: em(120);
+
+  @include bp($tablet) {
+    top: em(150);
+    height: 63%;
+  }
+} 
 
 .lessons-list-item {
   list-style: none;
@@ -52,9 +56,26 @@ $width: 50;
 }
 
 .lessons-list-item:last-child {
-  margin: 0;
+  //margin: 0;
 }
 
+.lessons-list-item > a {
+  background: #bd1827;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 1em;
+
+  @include bp($tablet) {
+    position: relative;
+  }
+  @include bp($laptop){
+    position: absolute;
+    margin-left: 0;
+  }
+}
 
 // We removed the counter on the li and put it here instead
 // so we have greater control of placement
@@ -79,8 +100,13 @@ $width: 50;
   display: inline-block;
 
   @include bp($laptop) {
-    width: 90%;
+    width: 80%;
   }
+}
+
+.lessons-list__ordered .media-object a {
+  text-decoration: none;
+  color: #000;
 }
 
 .lessons-list__ordered .button-wrapper {
