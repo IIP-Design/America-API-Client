@@ -44,16 +44,12 @@ ul li::before {
 
   @include bp($tablet) {
     width: 640px;
+    top: 1.5em;
   }
 }
 
 .lesson .lesson-buttonnav {
-  margin: 30px 0;
   float: left;
-
-  @include bp($tablet) {
-    margin: 0;
-  }
 }
 
 .lesson .lesson-buttonnav > a {
@@ -79,6 +75,7 @@ ul li::before {
     margin: 0;
     position: relative;
     top: -0.5em;
+    z-index: 0;
   }
 }
 
