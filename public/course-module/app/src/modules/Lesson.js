@@ -50,7 +50,7 @@ const Lesson = React.createClass({
 		 //<Link to={ 'quiz' }>Go to quiz</Link> (removed for MVP)
     if (lessonIndex === numLessons) {
       return (
-        <div>
+        <div className='lesson-buttonnav'>
           { this.getLink(-1, 'Previous Lesson') }
           <a href={ signup }>Go to Summary</a>
         </div>
@@ -59,7 +59,7 @@ const Lesson = React.createClass({
 
     if (lessonIndex === 0) {
       return (
-        <div>
+        <div className='lesson-buttonnav'>
            { this.getLink(1, 'Next Lesson') }
         </div>
       );
@@ -67,7 +67,7 @@ const Lesson = React.createClass({
 
     if (lessonIndex !== 0 && lessonIndex !== numLessons) {
       return (
-        <div>
+        <div className='lesson-buttonnav'>
           { this.getLink(-1, 'Previous Lesson') }
           { this.getLink(1, 'Next Lesson') }
         </div>
@@ -90,14 +90,18 @@ const Lesson = React.createClass({
     const props = this.props;
 
     return (
-      <div>
-        <h2>{ props.lesson.title }</h2>
+      <div className='lesson'>
+        <h2 className='lesson-title'>{ props.lesson.title }</h2>
         <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
-        <YouTube videoId={ props.video.video_id  } className='lesson-video' />
-        { this.buttonNav() }
-        <ul className='lesson-pagination'>
-          { this.props.lessons.map(this.lessonPagination) }
-        </ul>
+        <div className='lesson-video'>
+          <YouTube videoId={ props.video.video_id  } />
+        </div>
+        <div className='lesson-nav'>
+          { this.buttonNav() }
+          <ul className='lesson-pagination'>
+            { this.props.lessons.map(this.lessonPagination) }
+          </ul>
+        </div>
         <LessonTabs
           description={ props.lesson.description }
           transcript={ props.media.transcript_text }

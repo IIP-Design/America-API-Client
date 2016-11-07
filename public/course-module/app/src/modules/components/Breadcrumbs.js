@@ -4,10 +4,10 @@ const {string, object } = React.PropTypes;
 
 const Breadcrumbs = (props) => {
     return (
-       <div>
+       <div className='lesson-breadcrumbs'>
 				 <Link to='/'>{ props.courseTitle }</Link>
 				 <span> > </span>
-				 <Link>{ props.name }</Link>
+				 <span> { props.name }</span>
 			</div>
     );
 };
