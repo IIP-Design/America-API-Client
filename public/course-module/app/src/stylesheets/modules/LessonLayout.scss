@@ -5,6 +5,10 @@ ul li::before {
   padding: 0;
 }
 
+.lesson ul {
+  text-indent: 0;
+}
+
 .lesson .lesson-title {
   margin-bottom: 0;
 }
@@ -44,7 +48,7 @@ ul li::before {
 
   @include bp($tablet) {
     width: 640px;
-    top: 1.5em;
+    margin-top: 1.5em;
   }
 }
 
