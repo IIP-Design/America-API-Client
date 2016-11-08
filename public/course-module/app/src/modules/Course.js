@@ -27,6 +27,15 @@ const Course = React.createClass({
 
   render: function() {
     let props = this.props;
+    let src = '';
+    let alt = '';
+
+    // On the first load, the image doesn't exist so references to src and alt
+    // throw a TypeError and everything breaks
+    try {
+      src = props.course.image.src;
+      alt = props.course.image.alt;
+    } catch(error) {}
 
     return (
       <div>
@@ -34,7 +43,7 @@ const Course = React.createClass({
         <section className='course-intro'>
           <div className='course-intro-feature'>
             <div className='course-intro-image'>
-              <img src={ props.course.image.src } alt={ props.course.image.alt } />
+              <img src={ src } alt={ alt } />
               <div className='course-intro-gradient'></div>
             </div>
             <div className='course-intro-text'>
