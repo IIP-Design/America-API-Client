@@ -92,8 +92,13 @@ ul li::before {
   background: #333;
   margin: 0 0 0 1.5em;
   display: inline-block;
-  color: white;
   position: relative;
+  cursor: pointer;
+}
+
+.lesson .lesson-pagination li a {
+  color: white;
+  text-decoration: none;
 }
 
 .lesson .lesson-pagination li::before{

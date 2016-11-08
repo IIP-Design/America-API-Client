@@ -77,8 +77,13 @@ const Lesson = React.createClass({
 
   lessonPagination: function(lesson, index) {
     const cls = ( index === this.props.lessonIndex ) ? 'active' : '';
+    const slug = lesson.slug;
+    const label = index + 1;
+
     return (
-        <li className={cls} key={ index }>{ index + 1 }</li>
+      <li className={cls} key={ index }>
+        <Link to={ `lesson/${slug}` } id={ slug } onClick={ this.handleClick }>{ label }</Link>
+      </li>
     );
   },
 
