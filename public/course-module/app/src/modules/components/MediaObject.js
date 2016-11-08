@@ -1,6 +1,5 @@
 const React = require('react');
 const { Link } = require('react-router');
-const Image = require('./Image');
 
 const { string, bool, object } = React.PropTypes;
 
@@ -27,7 +26,7 @@ const MediaObject = React.createClass({
     return (
        <div className={ reversed ? 'media-object reversed' : 'media-object' }>
         <Link to={ this.props.link }>
-          <Image media_queries={ this.props.media_queries } { ...this.props.image } />
+          <img src={ this.props.image.src } alt={ this.props.image.alt } />
         </Link>
         <header>
            <Link to={ this.props.link }>

@@ -4,7 +4,6 @@ const api             = require('../api');
 const LessonList      = require('./LessonList');
 const InstructorList  = require('./InstructorList');
 const StepsList       = require('./components/StepsList');
-const Image           = require('./components/Image');
 
 require('../stylesheets/modules/Course.scss');
 
@@ -35,7 +34,7 @@ const Course = React.createClass({
         <section className='course-intro'>
           <div className='course-intro-feature'>
             <div className='course-intro-image'>
-              <Image { ...props.course.image } />
+              <img src={ props.course.image.src } alt={ props.course.image.alt } />
               <div className='course-intro-gradient'></div>
             </div>
             <div className='course-intro-text'>
