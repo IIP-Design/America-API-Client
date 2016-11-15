@@ -242,10 +242,17 @@ class America_API_Client_Admin {
 
   public function america_api_client_courses_shortcode( $args ) {
     $attr = shortcode_atts( array(
-      'id' => ''
+      'id' => '',
+      'exit_page' => ''
     ), $args );
 
-    $html = '<div id="course-container" data-course-id="' . $attr['id'] . '"></div>';
+    $html = '<div id="course-container" data-course-id="' . $attr['id'] . '"';
+
+    if ( $attr['exit_page'] !== '' ) {
+      $html .= 'data-exit-page="' . $attr['exit_page'] . '"';
+    }
+
+    $html .= '></div>';
 
     return $html;
   }
