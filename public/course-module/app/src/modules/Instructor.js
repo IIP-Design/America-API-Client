@@ -1,50 +1,35 @@
 const React = require('react');
+const { connect } = require('react-redux');
 const _ = require('lodash');
+
+const mapStateToProps = (state, { params: { slug } }) => {
+  const instructor = _.find(state.course.instructors, (instructor) => {
+    return slug === instructor.slug;
+  });
+
+  return { slug, instructor }
+};
 
 const Instructor = React.createClass({
   propTypes: {
     params: React.PropTypes.object
   },
 
-  // Temp function until ajax requests
-  getInitialState: function() {
-    const instructor = this.getInstructor();
-    return { data: instructor };
+  rawDescription: function() {
+    return { __html: this.props.instructor.description };
   },
-
-  getInstructor: function() {
-    const course = this.getThisCourse();
-    let instructors = [];
-
-    course.lessons.forEach(function(lesson) {
-      lesson.instructors.forEach(function(instructor) {
-        if (instructor.slug === this.props.params.slug) {
-          instructors.push(instructor);
-        }
-      }, this);
-    }, this);
-
-    instructors = _.uniqBy(instructors, 'id');
-
-    return instructors[0];
-  },
-
-
-  getThisCourse: function() {
-    const courseId = localStorage.getItem('courseId');
-    const course = this.courses.filter(function(course) {
-      return (Number(course.id) === Number(courseId));
-    }, this);
-
-    return course[0];
-  },
-
 
   render: function() {
+    const props = this.props;
+
     return (
-      <h2>Instructor: { this.state.data.title }</h2>
+      <div className='two-thirds first'>
+        <h1>{ props.instructor.title }</h1>
+        <img src={ props.instructor.image.src } alt={ props.instructor.image.alt } />
+        <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
+      </div>
     );
   }
 });
 
-module.exports = Instructor;
+module.exports = connect(mapStateToProps)(Instructor);

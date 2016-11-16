@@ -22,7 +22,6 @@ $width: 50;
 
 //The line connecting the lesson numbers
 .lessons-list__ordered::before {
-  border-left: $border;
   content: '';
   left: em($width - $halfRadius);
   position: absolute;
@@ -33,7 +32,7 @@ $width: 50;
     top: em(150);
     height: 63%;
   }
-} 
+}
 
 .lessons-list-item {
   list-style: none;
