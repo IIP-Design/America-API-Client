@@ -46,7 +46,7 @@ const LessonTabs = React.createClass({
         <TabPanel>
           <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
         </TabPanel>
-        { this.isEmpty(this.props.resources) === true ? null : <TabPanel>{ resources }</TabPanel> }
+        { this.isEmpty(this.props.resources) === true ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
       </Tabs>
     );
   }

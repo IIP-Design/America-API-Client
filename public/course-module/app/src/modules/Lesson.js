@@ -96,23 +96,27 @@ const Lesson = React.createClass({
 
     return (
       <div className='lesson'>
-        <h1 className='lesson-title'>{ props.lesson.title }</h1>
-        <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
-        <div className='lesson-video'>
-          <YouTube videoId={ props.video.video_id  } />
+        <div className="two-thirds first">
+          <h1 className='lesson-title'>{ props.lesson.title }</h1>
+          <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
+          <div className='lesson-video'>
+            <YouTube videoId={ props.video.video_id  } />
+          </div>
+          <div className='lesson-nav'>
+            { this.buttonNav() }
+            <ul className='lesson-pagination'>
+              { this.props.lessons.map(this.lessonPagination) }
+            </ul>
+          </div>
+          <LessonTabs
+            description={ props.lesson.description }
+            transcript={ props.media.transcript_text }
+            resources={ props.resources }
+          />
         </div>
-        <div className='lesson-nav'>
-          { this.buttonNav() }
-          <ul className='lesson-pagination'>
-            { this.props.lessons.map(this.lessonPagination) }
-          </ul>
+        <div className="one-third">
+          <Glossary terms={ props.glossary } />
         </div>
-        <LessonTabs
-          description={ props.lesson.description }
-          transcript={ props.media.transcript_text }
-          resources={ props.resources }
-        />
-        <Glossary terms={ props.glossary } />
       </div>
     );
   }
