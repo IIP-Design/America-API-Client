@@ -96,7 +96,7 @@ const Lesson = React.createClass({
 
     return (
       <div className='lesson'>
-        <h2 className='lesson-title'>{ props.lesson.title }</h2>
+        <h1 className='lesson-title'>{ props.lesson.title }</h1>
         <Breadcrumbs courseTitle={ props.courseTitle} name={ props.lesson.title  }  />
         <div className='lesson-video'>
           <YouTube videoId={ props.video.video_id  } />

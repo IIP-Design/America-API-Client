@@ -44,8 +44,7 @@ h1, h3 {
 .course-intro-image img {
   @include bp($tablet) {
     float: right;
-    min-height: 100%;
-    width: 65vw;
+    max-width: none !important;
   }
 }
 
@@ -82,10 +81,15 @@ h1, h3 {
 }
 
 .course-intro-text {
-  position: relative;
   bottom: $bottom;
+  height: 100%;
+  position: relative;
 
   @include bp($tablet) {
+    background: linear-gradient(0deg,#fff 0%, #cde5f0 70%, transparent 100%);
+    background: -moz-linear-gradient(0deg,#fff 0%, #cde5f0 70%, transparent 100%);
+    background: -webkit-linear-gradient(0deg,#fff,#cde5f0 70%,transparent);
+    background: -ms-linear-gradient(0deg,#fff 0%, #cde5f0 70%, transparent 100%);
     bottom: 0;
     padding: 1em;
     position: relative;
@@ -93,7 +97,7 @@ h1, h3 {
   }
 
   @include bp($laptop) {
-    padding: 2em;
+    padding: 1em 2em 2em;
   }
 }
 

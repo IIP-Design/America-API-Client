@@ -9,6 +9,17 @@
     clear: none;
     float: left;
     margin: 0 1% 0 0;
+  }
+}
+
+.instructors-list .media-object.half {
+  @include bp($laptop) {
+    width: 49%;
+  }
+}
+
+.instructors-list .media-object.one-third {
+  @include bp($laptop) {
     width: 32%;
   }
 }
