@@ -46,13 +46,14 @@ const Lesson = React.createClass({
     const numLessons = this.props.lessons.length - 1;
     const lessons = this.props.lessons;
     const lessonIndex = this.props.lessonIndex;
-		const signup = `${location.protocol}//${location.hostname}/get-quiz-certificate/`;
-		 //<Link to={ 'quiz' }>Go to quiz</Link> (removed for MVP)
+    const exitPage = document.getElementById('course-container').dataset.exitPage;
+		const quizLink = `${location.protocol}//${location.hostname}${exitPage}`;
+
     if (lessonIndex === numLessons) {
       return (
         <div className='lesson-buttonnav'>
           { this.getLink(-1, 'Previous Lesson') }
-          <a href={ signup }>Go to Summary</a>
+          <a href={ quizLink }>Go to Quiz</a>
         </div>
       );
     }
