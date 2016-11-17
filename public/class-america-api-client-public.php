@@ -82,8 +82,10 @@ class America_API_Client_Public {
   public function set_body_class( $classes ) {
     global $post;
 
-    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-      $classes[] = 'react-course';
+    if ( has_shortcode( $post->post_content, 'course' ) ) {
+      $new_classes = array_merge( $classes, array( 'react-course' ) );
+      return $new_classes;
+    } else {
       return $classes;
     }
   }
