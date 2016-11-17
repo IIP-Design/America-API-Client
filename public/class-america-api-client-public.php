@@ -73,10 +73,19 @@ class America_API_Client_Public {
     }
   }
 
+  /**
+   * Add react-course class to the body element
+   *
+   * @since   1.0.0
+   */
 
   public function set_body_class( $classes ) {
-    $classes[] = 'react-course';
-    return $classes;
+    global $post;
+
+    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
+      $classes[] = 'react-course';
+      return $classes;
+    }
   }
 
 
