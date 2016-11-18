@@ -41,19 +41,37 @@ const Lesson = React.createClass({
   },
 
 
+  // Exit page code to be moved to quiz
+  getAbsoluteUrl: function(url) {
+    const params = { tokenName: token.name, tokenValue: token.value };
+    const esc = encodeURIComponent;
+    const query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
+    var a;
+
+
+    return (function(url) {
+      (!a) ? a = document.createElement('a') : a;
+      a.href = `${url}?${query}`;
+      return a.href;
+    })(url);
+  },
+
+
   // Assign the correct next/previous/both buttons
   buttonNav: function() {
     const numLessons = this.props.lessons.length - 1;
     const lessons = this.props.lessons;
     const lessonIndex = this.props.lessonIndex;
+
+    // Exit page code to be moved to quiz
     const exitPage = document.getElementById('course-container').dataset.exitPage;
-		const quizLink = `${location.protocol}//${location.hostname}${exitPage}`;
+		const exitLink = this.getAbsoluteUrl(exitPage);
 
     if (lessonIndex === numLessons) {
       return (
         <div className='lesson-buttonnav'>
           { this.getLink(-1, 'Previous Lesson') }
-          <a href={ quizLink }>Go to Quiz</a>
+          <a href={ exitLink }>Go to Quiz</a>
         </div>
       );
     }
