@@ -15,6 +15,10 @@ const Instructor = React.createClass({
     params: React.PropTypes.object
   },
 
+  componentDidMount: function() {
+    window.scroll(0,0);
+  },
+
   rawDescription: function() {
     return { __html: this.props.instructor.description };
   },

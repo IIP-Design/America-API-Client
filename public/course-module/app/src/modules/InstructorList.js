@@ -1,6 +1,7 @@
 const React       = require('react');
 const { Link }    = require('react-router');
 const MediaObject = require('./components/MediaObject');
+const shortid = require('shortid');
 
 require('../stylesheets/modules/InstructorList.scss');
 
@@ -13,8 +14,9 @@ const InstructorList = React.createClass({
     const length = this.props.instructors.length;
     const instructors = this.props.instructors.map(function(instructor) {
       const link = `/instructors/${ instructor.slug }`
+
       return (
-        <div className={ (length < 3) ? 'media-object half' : 'media-object one-third' }>
+        <div key={ instructor.id } className={ (length < 3) ? 'media-object half' : 'media-object one-third' }>
           <Link to={ link }>
             <img src={ instructor.image.src } alt={ instructor.image.alt } />
           </Link>

@@ -13,8 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
 // Get redux store from localStorage
 const persistedState = loadState();
 
-// @toso: only include devToolsExtension/logger if environment is DEV
-const store = createStore(
+// @todo: only include devToolsExtension/logger if environment is DEV
+const store = createStore (
   reducers,
   persistedState,
   compose(

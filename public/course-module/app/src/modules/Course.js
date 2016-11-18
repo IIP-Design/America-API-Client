@@ -15,6 +15,7 @@ const Course = React.createClass({
   },
 
   componentDidMount: function() {
+    window.scroll(0,0);
     var container = document.getElementById('course-container');
     var id = container.dataset.courseId;
     // if id then else err
@@ -30,16 +31,11 @@ const Course = React.createClass({
     let src = '';
     let alt = '';
 
-    // On the first load, the image doesn't exist so references to src and alt
-    // throw a TypeError and everything breaks
-    try {
-      src = props.course.image.src;
-      alt = props.course.image.alt;
-    } catch(error) {}
+    props.course.image ? src = props.course.image.src : src = undefined;
+    props.course.image ? alt = props.course.image.alt : alt = undefined;
 
     return (
       <div>
-        <div className={props.isFetching ? 'show' : 'hide'}>Loading...</div>
         <section className='course-intro'>
           <div className='course-intro-feature'>
             <div className='course-intro-image'>

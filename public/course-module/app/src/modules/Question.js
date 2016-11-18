@@ -3,14 +3,15 @@ const { connect, dispatch } = require('react-redux');
 const { answerQuestion } = require('../actions/actions');
 const ChoiceList = require('./ChoiceList');
 
-const { string, number, bool, array } = React.PropTypes;
+const { string, number, bool, array, func } = React.PropTypes;
 
 const Question = React.createClass({
 	propTypes: {
     text: string,
     choices: array,
     qid: number,
-    correct: bool
+    correct: bool,
+    handleChange: func
   },
 
   rawHTML()  {
@@ -18,14 +19,15 @@ const Question = React.createClass({
   },
 
   handleChange (e) {
-    this.props.dispatch(answerQuestion(e.target.id));
+  	this.props.handleChange(e);
+  	// this.props.dispatch(answerQuestion(e.target.id));
   },
 
   render() {
 		return (
     	<li className='quiz-question'>
     		<div className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
-		  	<ChoiceList className='quiz-choices' qid={ this.props.qid } choices={ this.props.choices } onChange={ this.handleChange } />
+		  	<ChoiceList className='quiz-choices' qid={ this.props.qid } choices={ this.props.choices } handleChange={ this.handleChange } />
 			</li>
 		);
 	}

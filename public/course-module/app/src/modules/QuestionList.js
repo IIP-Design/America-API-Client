@@ -1,12 +1,17 @@
 const React = require('react');
 const Question = require('./Question');
 const forEach = require('lodash');
-const { array } = React.PropTypes;
+const { array, func } = React.PropTypes;
 const shortid = require('shortid');
 
 const QuestionList = React.createClass({
 	propTypes: {
-    questions: array
+    questions: array,
+    handleChange: func
+  },
+
+  handleChange (e) {
+  	this.props.handleChange(e.target.id);
   },
 
   renderQuestion (question, i) {
@@ -17,18 +22,14 @@ const QuestionList = React.createClass({
     		qid={ i }
     		text={ question.text }
     		choices={ question.choices }
+    		handleChange={ this.handleChange }
     	/>
     )
   },
 
 	render() {
-		const listStyle = {
-			listStyle: 'none',
-			margin: 30
-		};
-
 		return (
-			<ol style={ listStyle }>
+			<ol className='quiz-questions'>
         { this.props.questions.map(this.renderQuestion) }
       </ol>
 		);
