@@ -59,6 +59,10 @@ const Quiz = React.createClass({
   },
 
   generateExitLink (url) {
+    if (!token) {
+      var token = {name: '', value:''};
+    }
+
     const esc = encodeURIComponent;
     const params = { course: this.props.courseName, tokenName: token.name, tokenValue: token.value };
     const query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
