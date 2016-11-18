@@ -2,7 +2,7 @@ const { createStore, applyMiddleware, compose } = require('redux');
 const createLogger = require('redux-logger');
 const thunk = require('redux-thunk').default;
 const reducers =  require('./reducers');
-const { loadState, saveState } = require('./localStorage');
+const { loadState, saveState } = require('./sessionStorage');
 
 // including thunk middleware in the event we want to return functions for async purposes
 const middleware = [thunk];
@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger())
 }
 
-// Get redux store from localStorage
+// Get redux store from sessionStorage
 const persistedState = loadState();
 
 // @todo: only include devToolsExtension/logger if environment is DEV

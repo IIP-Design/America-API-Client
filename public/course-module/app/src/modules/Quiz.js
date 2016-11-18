@@ -58,16 +58,24 @@ const Quiz = React.createClass({
     })
   },
 
-  generateExitLink () {
-  	 const exitPage = document.getElementById('course-container').dataset.exitPage;
-  	 const query = encodeURI(`?course=${this.props.courseName}`);
-		 const exitUrl = `${location.protocol}//${location.hostname}${exitPage}${query}`;
+  generateExitLink (url) {
+    const esc = encodeURIComponent;
+    const params = { course: this.props.courseName, tokenName: token.name, tokenValue: token.value };
+    const query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
+    var a;
 
-		 return exitUrl;
+
+    return (function(url) {
+      (!a) ? a = document.createElement('a') : a;
+      a.href = `${url}?${query}`;
+      return a.href;
+    })(url);
   },
 
   goToCertificateScreen() {
-		const url = this.generateExitLink();
+    const exitPage = document.getElementById('course-container').dataset.exitPage;
+		const url = this.generateExitLink(exitPage);
+
    	window.location = url;  // need to add nonce and course name
   },
 
