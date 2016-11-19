@@ -4,14 +4,14 @@
  * A Wordpress plugin for consuming the America API
  *
  * @link              https://github.com/IIP-Design/America-API-Client
- * @since             1.0.1
+ * @since             1.0.2
  * @package           America_API_Client
  *
  * @wordpress-plugin
  * Plugin Name:       America API Client
  * Plugin URI:        https://github.com/IIP-Design/America-API-Client
  * Description:       A Wordpress plugin for consuming the America API
- * Version:           1.0.0
+ * Version:           1.0.2
  * Author:            Office of Design, U.S. Department of State
  * Author URI:        https://github.com/IIP-Design
  * License:           GPL-2.0+
