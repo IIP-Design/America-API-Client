@@ -4,7 +4,7 @@
  * A Wordpress plugin for consuming the America API
  *
  * @link              https://github.com/IIP-Design/America-API-Client
- * @since             1.0.0
+ * @since             1.0.1
  * @package           America_API_Client
  *
  * @wordpress-plugin
