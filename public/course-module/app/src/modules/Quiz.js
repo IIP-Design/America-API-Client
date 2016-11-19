@@ -37,11 +37,17 @@ const Quiz = React.createClass({
 		let questions = this.props.questions;
 		let correct = true;
 		let index = 0;
+
 		questions.map((question) => {
 			let userAnswer = this.state.userAnswers[index];
-			let correctanswer = question.correctAnswers[0];
-			if( correctanswer !== userAnswer) {
+			let correctAnswer = question.correctAnswers[0];
+			let id = 'q' + index;
+
+			if( correctAnswer !== userAnswer) {
+				this.showCorrectIndicator(id, 'incorrect');
 				correct = false;
+			} else {
+				this.showCorrectIndicator(id, 'correct');
 			}
 			index++;
 		});
@@ -58,18 +64,23 @@ const Quiz = React.createClass({
     })
   },
 
-  generateExitLink (url) {
-    const esc = encodeURIComponent;
-    let params = {};
-    var a;
+  showCorrectIndicator(id, cls) {
+		let el = document.getElementById(id);
+		el.classList.remove('incorrect');
+		el.classList.remove('correct');
+		el.classList.add(cls);
+  },
 
-    try {
-      params = { course: this.props.courseName, tokenName: token.name, tokenValue: token.value };
-    } catch (e) {
-      params = { course: this.props.courseName };
+  generateExitLink (url) {
+    if (!token) {
+      var token = {name: '', value:''};
     }
 
+    const esc = encodeURIComponent;
+    const params = { course: this.props.courseName, tokenName: token.name, tokenValue: token.value };
     const query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
+    var a;
+
 
     return (function(url) {
       (!a) ? a = document.createElement('a') : a;
@@ -82,35 +93,35 @@ const Quiz = React.createClass({
     const exitPage = document.getElementById('course-container').dataset.exitPage;
 		const url = this.generateExitLink(exitPage);
 
-   	window.location = url;  // need to add nonce and course name
+   	window.location = url;
   },
 
   handleSubmit (e) {
   	e.preventDefault();
-    console.log(this.goToCertificateScreen());
+
 		// All questions not answerecd, show notification
 		if( !this.isAllAnswered() ) {
 				this.setState({ message: 'Please answer all the questions' });
 				this.toggleNotification ();
-		} else {
-			this.goToCertificateScreen();
 		}
 
 		// All questions answered correctly, send to cert screen
-		// else if ( this.isAllCorrect() )  {
-		// 	 this.goToCertificateScreen();
-		// }
+		else if ( this.isAllCorrect() )  {
+			 this.goToCertificateScreen();
+		}
 
-		// // User got some wrong, if max attempt, redirect to lesson page, else notffy
-		// else {
-		// 	if( this.state.numAttempts === 5 ) {
-		// 		hashHistory.push(`/lesson/${this.props.lessons[0].slug}`);
-		// 	} else {
-		// 		this.setState({ message: 'Some of your answers are incorrect, please try again' });
-		// 		this.toggleNotification ();
-		// 		this.setState({  numAttempts: this.state.numAttempts + 1 });
-		// 	}
-		// }
+		// User got some wrong, if max attempt, redirect to first lesson, else notify
+		else {
+			if( this.state.numAttempts === 5 ) {
+				hashHistory.push(`/lesson/${this.props.lessons[0].slug}`);
+			} else {
+				this.setState({
+					message: 'Some of your answers are incorrect, please try again' ,
+					numAttempts: this.state.numAttempts + 1
+				});
+				this.toggleNotification ();
+			}
+		}
   },
 
    /*
@@ -125,10 +136,9 @@ const Quiz = React.createClass({
 		}
   },
 
- /* We are using the component state to store user responses as opposed to the redux store
-  due to some weird behaviour with the radio buttons not setting themselves as selected upon dispatch to store
-  Not sure the cause, could simple be 'programmer' error :-)
-  @todo: Move user responses to store when time permits
+ /*
+  We are using the component state to store user responses as opposed to the redux store
+  @todo: Maybe move user responses to store when time permits
   */
   /*
   	Activate submit button if num answers is the same as num questions
@@ -139,11 +149,11 @@ const Quiz = React.createClass({
   	let answers = this.state.userAnswers;
   	answers[response.question] = response.answer;
 
-		// if( this.isAllAnswered() ) {
-		//	this.setState({
-    //   allAnswered: true
-  	//	})
-		//}
+		if( this.isAllAnswered() ) {
+			this.setState({
+      allAnswered: true
+  		})
+		}
   },
 
 	render () {
@@ -171,6 +181,7 @@ const Quiz = React.createClass({
           message={ this.state.message }
           action='Dismiss'
           onDismiss={ this.toggleNotification }
+          dismissAfter='3500'
           onClick={() =>  this.setState({ isNotificationActive: false })}
         />
       </div>
@@ -185,7 +196,6 @@ const mapStateToProps = (store) => {
   	courseName: store.course.detail.title,
     questions: quiz.questions,
     userAnswers: quiz.userAnswers,
-    //allAnswered: true,
     //allAnswered: quiz.questions.length === quiz.userAnswers.length,
     lessons: store.course.lessons
   };
@@ -193,8 +203,10 @@ const mapStateToProps = (store) => {
 
 module.exports = connect(mapStateToProps)(Quiz);
 
-
-// TODOs:
+// @todo:
+// If store is empty, issue call to get store
 // Need to display question type based on question type
 // Check for data before rendering or provide a default
-// Can the user retry the quiz if they fail or should they go back lesson menu
+// Can the user retry the quiz if they fail or should they go back lesson menu?
+
+

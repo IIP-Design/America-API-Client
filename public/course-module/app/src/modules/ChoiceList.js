@@ -29,12 +29,6 @@ const ChoiceList = React.createClass({
 		this.props.handleChange(e);
   },
 
-  // shouldComponentUpdate(nextProps, nextState) {
-		// console.log('shouldComponentUpdate')
-		// console.dir(nextState)
-		// return true;
-  // },
-
   generateArrFromObjectKeys( obj ) {
   	var choices = [];
 		_.forEach( obj, function(value, key) {

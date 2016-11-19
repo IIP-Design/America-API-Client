@@ -26,7 +26,7 @@ const Question = React.createClass({
   render() {
 		return (
     	<li className='quiz-question'>
-    		<div className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
+    		<div id={ `q${this.props.qid}` } className='quiz-question-text' dangerouslySetInnerHTML={ this.rawHTML() }></div>
 		  	<ChoiceList className='quiz-choices' qid={ this.props.qid } choices={ this.props.choices } handleChange={ this.handleChange } />
 			</li>
 		);

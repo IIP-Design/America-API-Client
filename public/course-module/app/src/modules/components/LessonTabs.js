@@ -28,7 +28,7 @@ const LessonTabs = React.createClass({
   render: function() {
     const resources = this.props.resources.map(function(resource) {
       return (
-        <li key={ shortid.generate() }><a href={ resource.src } >{ resource.title }</a></li>
+        <li key={ shortid.generate() }><a href={ resource.url } >{ resource.title }</a></li>
       );
     });
 

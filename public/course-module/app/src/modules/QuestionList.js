@@ -10,6 +10,10 @@ const QuestionList = React.createClass({
     handleChange: func
   },
 
+  shouldComponentUpdate: function(nextProps) {
+  	return false;
+  },
+
   handleChange (e) {
   	this.props.handleChange(e.target.id);
   },
@@ -29,7 +33,7 @@ const QuestionList = React.createClass({
 
 	render() {
 		return (
-			<ol className='quiz-questions'>
+			<ol id="questionList" className='quiz-questions'>
         { this.props.questions.map(this.renderQuestion) }
       </ol>
 		);
