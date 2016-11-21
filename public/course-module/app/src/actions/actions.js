@@ -12,8 +12,7 @@ function getData(data) {
 }
 
 function formatQuiz(data) {
-  var values = Object.values(data);
-  var result = values.map((value) => {
+  var result = data.map((value) => {
     return value;
   })
   return result;
@@ -70,7 +69,7 @@ export function setLesson(lesson) {
 
 // set quiz
 export function setQuiz(quiz) {
- return {
+  return {
     type: types.SET_QUIZ,
     payload: {
       questions: formatQuiz(quiz)

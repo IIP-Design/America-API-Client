@@ -8,8 +8,7 @@ const initialState = {
   glossary: []
 };
 
-const lessonReducer = (state = initialState, action) =>  { 
- 
+const lessonReducer = (state = initialState, action) =>  {
   switch(action.type) {
     case types.SET_LESSON:
       return Object.assign({}, state, action.payload);

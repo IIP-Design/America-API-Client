@@ -42,11 +42,13 @@ hashHistory.listen((e) => {
 
 const generateQuestions = (lessons ) => {
 	var result = [];
+
 	lessons.map((lesson) => {
 		lesson.quiz.map((quiz) => {
 				result.push(quiz);
 		})
 	})
+
 	return result;
 };
 
@@ -67,26 +69,27 @@ export function getLesson(slug) {
  * @todo Create a shared api call (remove getCourses method) and pass it an endpoint
  */
 export function getCourse(id) {
-	const dispatch = store.dispatch;
+  const dispatch = store.dispatch;
 
-	dispatch(fetchRequest());
-	let endpoint = ENDPOINT + id;
+  dispatch(fetchRequest());
+  let endpoint = ENDPOINT + id;
 
   // axios automatically formats to json
   return axios.get(endpoint)
-	  .then(response => {
-	  	const normalized = normalize(response.data.courses, courseSchema);
-	  	//const quiz = normalized.entities.quiz; // normalizr accting odd-needs work, failing back to standard array
-	  	const quiz = generateQuestions(response.data.courses.lessons);
-	   	dispatch( fetchCourseComplete(normalized));
+    .then(response => {
+      const normalized = normalize(response.data.courses, courseSchema);
+      //const quiz = normalized.entities.quiz; // normalizr accting odd-needs work, failing back to standard array
+      const quiz = generateQuestions(response.data.courses.lessons);
 
-	    if(quiz) {
-	    	 dispatch(setQuiz(quiz));
+      dispatch(fetchCourseComplete(normalized));
+
+      if (quiz) {
+        dispatch(setQuiz(quiz));
 	    }
-	  })
-	  .catch((err) => {
-	  	dispatch(fetchError(err));  // may need to change this as errors are swallowed
-	  });
+    })
+    .catch((err) => {
+      dispatch(fetchError(err));  // may need to change this as errors are swallowed
+    });
 }
 
 /**

@@ -40,20 +40,14 @@ const FormSelect = React.createClass({
   },
 
   shouldComponentUpdate (nextProps, nextState) {
-  	console.log('should update');
   	return false;
   },
 
   shouldComponentUpdate (nextProps, nextState) {
-  	console.log(this.id)
-  	console.dir(nextProps);
-  	console.dir(nextState);
   	return false;
   },
 
   componentWillReceiveProps(nextProps) {
-		console.log('componentWillReceiveProps')
-		console.dir(nextProps);
   },
 
 	render() {

@@ -36,6 +36,7 @@ const quizReducer = (state = initialState, action) => {
     	return state;
     }
   }
+
   return state;
 }
 // babel-plugin-transform-object-rest-spread
