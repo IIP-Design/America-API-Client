@@ -10,11 +10,14 @@ const { Notification } = require('react-notification');
 require('../stylesheets/modules/Quiz.scss');
 
 const Quiz = React.createClass({
-
   propTypes: {
     questions: array,
     userAnswers: array,
     allAnswered: bool
+  },
+
+  componentDidMount () {
+    window.scroll(0,0);
   },
 
    getInitialState () {
@@ -92,7 +95,7 @@ const Quiz = React.createClass({
   },
 
   goToCertificateScreen() {
-    const exitPage = document.getElementById('course-container').dataset.exitPage;
+    const exitPage = document.getElementById('course-container').getAttribute('data-exit-page');
 		const url = this.generateExitLink(exitPage);
 
    	window.location = url;

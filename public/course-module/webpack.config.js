@@ -5,7 +5,7 @@ var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
   context: __dirname,
-  entry: "./app/src",
+  entry: ['babel-polyfill', './app/src'],
   output: {
     path: path.join(__dirname, "app/src"),
     publicPath: '/app/src',

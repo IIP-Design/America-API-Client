@@ -16,8 +16,8 @@ const Course = React.createClass({
 
   componentDidMount: function() {
     window.scroll(0,0);
-    var container = document.getElementById('course-container');
-    var id = container.dataset.courseId;
+    const container = document.getElementById('course-container');
+    const id = container.getAttribute('data-course-id');
     // if id then else err
     api.getCourse(id);
   },
