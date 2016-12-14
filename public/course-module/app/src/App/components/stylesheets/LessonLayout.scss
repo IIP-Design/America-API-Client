@@ -1,0 +1,65 @@
+@import '../../stylesheets/all';
+
+ul li::before {
+  content: '';
+  padding: 0;
+}
+
+.lesson ul {
+  text-indent: 0;
+}
+
+.lesson .lesson-title {
+  margin-bottom: 0;
+}
+
+.lesson .lesson-breadcrumbs {
+  margin-bottom: em(20);
+  font-size: .85em;
+  margin-top: 0.25em;
+}
+
+.lesson .lesson-video {
+  height: 0;
+  margin: 1em 0;
+  padding-bottom: 57.25%; /* 16:9 */
+  padding-top: em(25);
+  position: relative;
+
+  @include bp($tablet) {
+    margin: 2em 0;
+  }
+}
+
+.lesson .lesson-video iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.lesson .lesson-nav {
+  margin: 1em 0 2em;
+  overflow: hidden;
+}
+
+.lesson .lesson-buttonnav {
+  @include bp($tablet) {
+    float: left;
+  }
+}
+
+.lesson .lesson-buttonnav > a {
+  background: #000;
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: .625em .9375em;
+  text-decoration: none;
+}
+
+.lesson .lesson-buttonnav > a:hover {
+  background: #222;
+  text-decoration: underline;
+}
+

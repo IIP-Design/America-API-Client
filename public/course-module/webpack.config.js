@@ -7,12 +7,15 @@ module.exports = {
   context: __dirname,
   entry: ['babel-polyfill', './app/src'],
   output: {
-    path: path.join(__dirname, "app/src"),
-    publicPath: '/app/src',
+    path: path.join(__dirname, "app/src/build"),
+    publicPath: '/app/src/build',
     filename: 'packed.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['', '.js', '.jsx', '.json'],
+    root: [
+      path.resolve('./app/src')
+    ]
   },
   devServer: {
     inline: true,
@@ -60,7 +63,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
-    new BrowserSyncPlugin(
+    /*new BrowserSyncPlugin(
       {
         host: 'localhost',
         port: 3000,
@@ -69,7 +72,7 @@ module.exports = {
       {
         reload: false  // true
       }
-    ),
+      ),*/
     new webpack.SourceMapDevToolPlugin({
       filename: 'packed.js.map',
       module: false,

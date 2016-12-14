@@ -1,20 +1,61 @@
-const { createStore, applyMiddleware, compose } = require('redux');
-const createLogger = require('redux-logger');
-const thunk = require('redux-thunk').default;
-const reducers =  require('./reducers');
-const { loadState, saveState } = require('./sessionStorage');
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-// including thunk middleware in the event we want to return functions for async purposes
+import { loadState, saveState } from './sessionStorage';
+import { appReducer } from './App';
+import { quizReducer } from './Quiz';
+
+
+/*
+ * Including thunk middleware in the event we want to return functions for async purposes
+ *
+ * @since 1.0.0
+ */
+
 const middleware = [thunk];
+
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger())
 }
 
-// Get redux store from sessionStorage
+
+
+
+/*
+ * Get Redux store from sessionStorage
+ *
+ * @since 1.0.0
+ */
+
 const persistedState = loadState();
 
-// @todo: only include devToolsExtension/logger if environment is DEV
-const store = createStore (
+
+
+
+/*
+ * Combine Redux reducers
+ *
+ * @since 1.0.0
+ */
+
+const reducers = combineReducers({
+  app: appReducer,
+  quiz: quizReducer
+});
+
+
+
+
+/*
+ * Create the Redux store
+ *
+ * @todo: only include devToolsExtension/logger if environment is DEV
+ *
+ * @since 1.0.0
+ */
+
+const store = createStore(
   reducers,
   persistedState,
   compose(
@@ -22,16 +63,19 @@ const store = createStore (
   )
 );
 
-// Listen for state changes and update state in localStorage
-store.subscribe (() => {
+
+// Listen for state changes and update state in sessionStorage
+store.subscribe(() => {
 	saveState(store.getState());
 });
 
-module.exports = store;
 
-
-/* remove redux dev tools temporariyl
+/* remove redux dev tools temporarily
 typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
 ? window.devToolsExtension()
 : f => f
 */
+
+
+export default store;
+
