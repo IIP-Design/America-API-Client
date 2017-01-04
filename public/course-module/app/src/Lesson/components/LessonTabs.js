@@ -35,18 +35,20 @@ const LessonTabs = React.createClass({
 
 
   render() {
-    const resources = this.props.resources.map((resource) => {
-      return (
-        <li key={ shortid.generate() }><a href={ resource.src } >{ resource.title }</a></li>
-      );
-    });
+    if (this.props.resources !== false) {
+      const resources = this.props.resources.map((resource) => {
+        return (
+          <li key={ shortid.generate() }><a href={ resource.src } target='_blank'>{ resource.title }</a></li>
+        );
+      });
+    }
 
     return (
       <Tabs>
         <TabList>
           <Tab>Overview</Tab>
           <Tab>Transcript</Tab>
-          { this.isEmpty(this.props.resources) === true ? null : <Tab>Lesson Resources</Tab> }
+          { this.props.resources === false ? null : <Tab>Lesson Resources</Tab> }
         </TabList>
         <TabPanel>
           <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
@@ -54,7 +56,7 @@ const LessonTabs = React.createClass({
         <TabPanel>
           <div dangerouslySetInnerHTML={ this.rawTranscript() }></div>
         </TabPanel>
-        { this.isEmpty(this.props.resources) === true ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
+        { this.props.resources === false ? null : <TabPanel><ul>{ resources }</ul></TabPanel> }
       </Tabs>
     );
   }

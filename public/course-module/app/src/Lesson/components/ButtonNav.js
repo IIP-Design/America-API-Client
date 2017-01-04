@@ -43,6 +43,14 @@ const ButtonNav = (props) => {
   const lessons = props.lessons;
   const lessonIndex = props.lessonIndex;
 
+  if (lessons.length === 1) {
+    return (
+      <div className='lesson-buttonnav'>
+        <Link to={ 'quiz' }>Go to Quiz</Link>
+      </div>
+    );
+  }
+
   // If the last lesson, display previous and quiz buttons
   if (lessonIndex === numLessons) {
     return (

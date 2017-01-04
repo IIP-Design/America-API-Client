@@ -37,8 +37,8 @@ const MainContainer = React.createClass({
     // On first render, if courses isn't on props, return null to avoid
     // undefined prop messages throughout the call stack
 
-    if (!this.props.course) {
-      return null
+    if (typeof this.props.course === 'undefined' || 'id' in this.props.course === false) {
+      return null;
     }
 
     const props = this.props;
