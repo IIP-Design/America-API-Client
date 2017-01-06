@@ -124,6 +124,6 @@ class America_API_Client_Public {
     }
 
     wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . $dir . $file_name, array(), null, true );
-    //wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . 'public/course-module/app/src/packed.js', array(), null, true ); //used for developement
+    //wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . 'public/course-module/app/src/build/packed.js', array(), null, true ); //used for developement
   }
 }

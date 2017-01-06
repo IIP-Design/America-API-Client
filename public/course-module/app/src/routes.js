@@ -1,31 +1,31 @@
-const React = require('react');
-const { Router, Route, IndexRoute, hashHistory } = require('react-router'); 
+import React from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-// Layouts
-const MainLayout = require('./modules/layouts/MainLayout');
-const LessonLayout = require('./modules/layouts/LessonLayout');
+import { MainContainer, LessonLayout } from './App';
+import { CourseContainer } from './Course';
+import { LessonContainer } from './Lesson';
+import { InstructorContainer } from './Instructor';
+import { QuizContainer } from './Quiz';
 
-// Pages
-//const CourseList = require('./modules/CourseList');
-const Course = require('./modules/Course');
-const Lesson = require('./modules/Lesson');
-const Instructor = require('./modules/Instructor');
-const Quiz = require('./modules/Quiz');
-const CertificateForm = require('./modules/CertificateForm');
 
-// Had to add 'lesson' to the path as path='quiz'  
-// resolves to path=':lessonSlug' as well
+/*
+ * Export the router
+ *
+ * @todo Consider removing the LessonLayout component
+ *
+ * @since 1.0.0
+ */
+
 module.exports = (
   <Router history={ hashHistory }>
-    <Route component={ MainLayout }>
+    <Route component={ MainContainer }>
       <Route path='/'>
-        <IndexRoute  component={ Course }  />
+        <IndexRoute component={ CourseContainer }  />
         <Route path='lesson' component={ LessonLayout }>
-          <Route path=':lessonSlug' component={ Lesson } />
+          <Route path=':lessonSlug' component={ LessonContainer } />
         </Route>
-        <Route path='/instructors/:slug' component={ Instructor } />
-        <Route path='quiz' component={ Quiz } />
-         <Route path='certificate' component={ CertificateForm } />
+        <Route path='/instructors/:slug' component={ InstructorContainer } />
+        <Route path='quiz' component={ QuizContainer } />
       </Route>
     </Route>
   </Router>

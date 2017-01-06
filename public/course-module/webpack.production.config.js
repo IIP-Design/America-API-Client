@@ -12,6 +12,11 @@ module.exports = {
     publicPath: path.join(__dirname, "app/dist"),
     filename: 'packed.[hash].js'
   },
+  resolve: {
+    root: [
+      path.resolve('./app/src')
+    ]
+  },
   module: {
     loaders: [
       {
