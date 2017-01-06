@@ -11,7 +11,7 @@
 
 export const loadState = () => {
 	try {
-		const serializedState = sessionStorage.getItem('state');  // change name of state to something less common
+		const serializedState = sessionStorage.getItem('courses_state_1483731319800');  // change name of state to something less common
 
     if (serializedState === null) {
       return undefined;
@@ -37,7 +37,7 @@ export const loadState = () => {
 export const saveState = state => {
 	try {
 		const serializedState = JSON.stringify(state);
-		sessionStorage.setItem('state', serializedState)
+		sessionStorage.setItem('courses_state_1483731319800', serializedState)
 	} catch (err) {}
 }
 
