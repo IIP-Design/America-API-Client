@@ -33,6 +33,7 @@ const InstructorList = React.createClass({
             <Link to={ link }>
               <h4 className='media-object-title'>{ instructor.title }</h4>
             </Link>
+            <h5 className='media-object-subtitle'>{ instructor.salutation }</h5>
           </header>
         </div>
       );

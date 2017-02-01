@@ -1,5 +1,7 @@
 import React from 'react'
 
+require('./stylesheets/Instructor.scss');
+
 const { object } = React.PropTypes;
 
 
@@ -31,7 +33,8 @@ const Instructor = React.createClass({
 
     return (
       <div className='two-thirds first'>
-        <h1>{ props.instructor.title }</h1>
+        <h1 className='instructor-title'>{ props.instructor.title }</h1>
+        <h3>{ props.instructor.salutation }</h3>
         <img src={ props.instructor.image.src } alt={ props.instructor.image.alt } />
         <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
       </div>
