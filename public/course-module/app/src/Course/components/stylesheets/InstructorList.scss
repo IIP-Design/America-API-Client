@@ -5,10 +5,11 @@
 }
 
 .instructors-list .media-object {
-  @include bp($tablet) {
+  @include bp($laptop) {
     clear: none;
     float: left;
     margin: 0 1% 0 0;
+    box-sizing: border-box;
   }
 }
 

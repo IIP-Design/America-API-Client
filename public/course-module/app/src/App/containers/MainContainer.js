@@ -22,6 +22,10 @@ const MainContainer = React.createClass({
    */
 
   componentDidMount() {
+    if(  process.env.NODE_ENV !== 'production' ) {
+      var args = { url: 'https://courses.america.gov/wp-json/america/v1'};  // hard code api url when in standalone courses module (testing)
+    }
+
     const root = document.getElementById('course-container');
     const endpoint = `${ args.url }/courses/${ root.dataset.courseId }`;
 

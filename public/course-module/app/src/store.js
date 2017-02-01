@@ -44,13 +44,19 @@ const reducers = combineReducers({
   quiz: quizReducer
 });
 
+/*
+ * Add redux development tools for development environment (via browser extension)
+ * If the browser extension is not installed, use compose
+ *
+ * @since 2.1.0
+ */
 
-
+const composeEnhancers = process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 /*
  * Create the Redux store
  *
- * @todo: only include devToolsExtension/logger if environment is DEV
+ * Integrate redux dev tools. 
  *
  * @since 1.0.0
  */
@@ -58,7 +64,7 @@ const reducers = combineReducers({
 const store = createStore(
   reducers,
   persistedState,
-  compose(
+  composeEnhancers(
   	applyMiddleware(...middleware)
   )
 );
@@ -69,12 +75,6 @@ store.subscribe(() => {
 	saveState(store.getState());
 });
 
-
-/* remove redux dev tools temporarily
-typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
-? window.devToolsExtension()
-: f => f
-*/
 
 
 export default store;

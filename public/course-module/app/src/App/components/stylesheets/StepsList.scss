@@ -31,7 +31,7 @@
 }
 
 .steps-list .step {
-  background: no-repeat 0 50%;
+  background: url('../images/check.png') no-repeat 0 50%;
   background-size: 1.25em 1.25em;
   line-height: 1.25em;
   padding-left: 2em;
@@ -50,16 +50,4 @@
 
 .steps-list .step:last-child {
   margin-bottom: 0;
-}
-
-.steps-list .steps-list__first {
-  background-image: url('../images/arrow.png');
-}
-
-.steps-list .steps-list__second {
-  background-image: url('../images/check.png');
-}
-
-.steps-list .steps-list__third {
-  background-image: url('../images/medal.png');
 }

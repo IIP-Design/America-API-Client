@@ -18,12 +18,14 @@ const Glossary = (props) => {
   }
 
   const glossary = props.terms.map((term) => {
-    <CollapseItem key={ term.id }>
-      <CollapseTrigger tag={ 'p' }>{ term.title }</CollapseTrigger>
-      <CollapsePanel description={ term.description } />
-    </CollapseItem>
+    return(
+      <CollapseItem key={ term.id }>
+        <CollapseTrigger tag={ 'p' }>{ term.title }</CollapseTrigger>
+        <CollapsePanel description={ term.description } />
+      </CollapseItem>
+    );
   });
-
+  
   return (
     <div>
       <h3>Glossary of Terms</h3>
