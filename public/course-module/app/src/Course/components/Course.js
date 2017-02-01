@@ -1,6 +1,7 @@
 import React from 'react';
 import { uniqBy } from 'lodash';
 import { StepsList } from 'App';
+import { Link } from 'react-router';
 
 import LessonList from './LessonList';
 import InstructorList from './InstructorList';
@@ -41,6 +42,7 @@ const Course = React.createClass({
     // Return a flat array of unique Instructors by id
     const instructors = _.uniqBy([].concat.apply([], props.course.lessons.map(lesson => lesson.instructors)), instructor => instructor.id);
     const lessons = props.course.lessons;
+    const link = lessons[0].slug;
 
     let src;
     let alt;
@@ -60,7 +62,8 @@ const Course = React.createClass({
             </div>
             <div className='course-intro-text'>
               <h1>{ props.course.title  }</h1>
-              <div dangerouslySetInnerHTML={ this.rawDescription() }></div>
+              <p dangerouslySetInnerHTML={ this.rawDescription() }></p>
+              <Link to={ `lesson/${ link }` } id={ link }><div className='course-take-course'>Take the Course</div></Link>
             </div>
           </div>
         </section>

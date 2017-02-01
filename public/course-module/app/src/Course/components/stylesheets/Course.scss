@@ -33,6 +33,7 @@ h1, h3 {
 .course-intro-image {
   position: relative;
   overflow: hidden;
+  min-height: 4em;
 
   @include bp($tablet) {
     height: 100%;
@@ -101,6 +102,18 @@ h1, h3 {
   }
 }
 
-.course-intro-text div p:last-child {
-  margin: 0;
+.course-intro-text a {
+  text-align: center;
+  text-decoration: none;
+}
+
+.course-take-course {
+  background: #bd1827;
+  padding: 1em;
+  text-decoration: none;
+  color: white;
+
+  @include bp($tablet) {
+    width: 8em;
+  }
 }
