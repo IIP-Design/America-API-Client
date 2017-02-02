@@ -280,7 +280,7 @@ const QuizForm = React.createClass({
             I certify that I have taken all the lessons related to this quiz before obtaining the certificate.
           </label>
           <QuestionList questions={ this.props.questions }/>
-          <input type="submit" value="Check Answers" />
+          <input type="submit" value="Submit and Get Certificate" />
         </form>
         <Notification
           isActive={ this.state.isNotificationActive }

@@ -22,12 +22,17 @@ const MainContainer = React.createClass({
    */
 
   componentDidMount() {
-    if(  process.env.NODE_ENV !== 'production' ) {
-      var args = { url: 'https://courses.america.gov/wp-json/america/v1'};  // hard code api url when in standalone courses module (testing)
+    var url;
+    try {
+      url = args.url;
     }
+    catch (e) {
+      console.log('IN DEV MODE assign hardcoded value');
+      url = 'https://courses.america.gov/wp-json/america/v1';
+    } 
 
     const root = document.getElementById('course-container');
-    const endpoint = `${ args.url }/courses/${ root.dataset.courseId }`;
+    const endpoint = `${ url }/courses/${ root.dataset.courseId }`;
 
     store.dispatch(actions.requestData());
 
