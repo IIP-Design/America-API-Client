@@ -1,3 +1,13 @@
+@import '../../../App/stylesheets/all';
+
 .instructor-title {
   margin: 0 0 8px 0;
+}
+.instructor-image {
+  width: 100%;
+  float: left;
+  margin: 0 1em 1em 0;
+  @include bp($tablet) {
+    width: 50%;
+  }
 }

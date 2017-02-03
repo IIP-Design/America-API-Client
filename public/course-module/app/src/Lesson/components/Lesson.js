@@ -34,6 +34,7 @@ const Lesson = React.createClass({
     const props = this.props;
     const media = (props.lesson.media) ? props.lesson.media : {};
     const video = (props.lesson.media && props.lesson.media.video) ? props.lesson.media.video : {};
+    const audio = (props.lesson.media && props.lesson.media.audio) ? props.lesson.media.audio : {};
 
     return (
       <div className='lesson'>
@@ -47,7 +48,7 @@ const Lesson = React.createClass({
             <ButtonNav lessons={ props.lessons } lessonIndex={ props.lessonIndex }/>
             <LessonPagination lessons={ props.lessons } lessonIndex={ props.lessonIndex } />
           </div>
-          <LessonTabs description={ props.lesson.description } transcript={ media.transcript_text } resources={ props.lesson.resources }
+          <LessonTabs description={ props.lesson.description } transcript={ media.transcript_text } transcriptFile={ media.transcript_file_url } resources={ props.lesson.resources } audio={ audio }
           />
         </div>
         <div className="one-third">
