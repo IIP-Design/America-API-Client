@@ -1,0 +1,20 @@
+@import '../../../App/stylesheets/all';
+
+.glossary-title {
+  line-height: 2em;
+  margin: 0 0 0 1.5em;
+  position: relative;
+}
+
+.glossary-content li {
+  list-style: none;
+}
+
+.glossary-item {
+  background: none;
+  text-decoration: none;
+}
+
+.glossary-text {
+  padding-left: 1em;
+}

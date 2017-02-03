@@ -1,6 +1,8 @@
 import React from 'react';
 import { Collapse, CollapseItem, CollapsePanel, CollapseTrigger } from 'App';
 
+require('./stylesheets/Glossary.scss')
+
 const { array } = React.PropTypes;
 
 
@@ -19,17 +21,17 @@ const Glossary = (props) => {
 
   const glossary = props.terms.map((term) => {
     return(
-      <CollapseItem key={ term.id }>
-        <CollapseTrigger tag={ 'p' }>{ term.title }</CollapseTrigger>
-        <CollapsePanel description={ term.description } />
+      <CollapseItem className='glossary-item' key={ term.id }>
+        <CollapseTrigger className='glossary-trigger' tag={ 'p' }>{ term.title }</CollapseTrigger>
+        <CollapsePanel className='glossary-text' description={ term.description } />
       </CollapseItem>
     );
   });
-  
+
   return (
-    <div>
-      <h3>Glossary of Terms</h3>
-      <Collapse>
+    <div className='glossary'>
+      <h3 className='glossary-title'>Glossary of Terms</h3>
+      <Collapse className='glossary-content'>
         { glossary }
       </Collapse>
     </div>
@@ -43,4 +45,3 @@ Glossary.propTypes = {
 
 
 export default Glossary;
-
