@@ -28,6 +28,14 @@ const QuizForm = React.createClass({
     resetQuiz: func
   },
 
+  /*
+   * Maximum number of attempts
+   * Should always be one less than the number of actual max attempts because it starts at zero
+   *
+   * @since 2.1.0
+   */
+
+  maxAttempts: 5,
 
   /*
    * Set the initial state of the component
@@ -38,7 +46,9 @@ const QuizForm = React.createClass({
   getInitialState() {
     return {
       isNotificationActive: false,
-      message: 'Please answer all the questions'
+      numIncorrect: 0,
+      attemptsClassname: 'quiz-hide quiz-attempts',
+      incorrectClassname: 'quiz-hide quiz-incorrect'
     };
   },
 
@@ -51,6 +61,20 @@ const QuizForm = React.createClass({
 
   toggleNotification() {
     this.setState({ isNotificationActive: !this.state.isNotificationActive });
+  },
+
+
+   /*
+   * Update the status display based on user answers
+   *
+   * @since 2.1.0
+   */
+
+  updateStatusNotification() {
+    this.setState({ 
+      attemptsClassname: 'quiz-show quiz-attempts',
+      incorrectClassname: 'quiz-show quiz-incorrect' 
+    });
   },
 
 
@@ -210,9 +234,11 @@ const QuizForm = React.createClass({
         if (correct.id === answer.choiceId) {
           this.showCorrectIndicator(answer.questionId, 'correct');
           results.push(answer);
-        }
+        } 
       });
     });
+
+    this.setState({ numIncorrect: userAnswers.length - results.length });
 
     return results;
   },
@@ -227,13 +253,10 @@ const QuizForm = React.createClass({
   handleSubmit(e) {
   	e.preventDefault();
 
-    // This should always be one less than the number of actual max attempts because it starts at zero
-    const maxAttempts = 4;
-
 		// All questions not answerecd, show notification
 		if(!this.isAllAnswered()) {
-		  this.setState({ message: 'Please answer all the questions' });
-			this.toggleNotification();
+		  this.toggleNotification();
+      return;
 		}
 
 		// All questions answered correctly, send to cert screen
@@ -245,17 +268,14 @@ const QuizForm = React.createClass({
 		else {
 
       // If max attempts reached, redirect to first lesson
-      if( this.props.numAttempts === maxAttempts ) {
+      if( this.props.numAttempts === (this.maxAttempts -1) ) {
         this.props.resetQuiz();
 				hashHistory.push(`/lesson/${this.props.lessons[0].slug}`);
 
       // Else notify user of mistakes
 			} else {
+        this.updateStatusNotification();
         this.props.incrementNumAttempts();
-			  this.setState({
-					message: 'Some of your answers are incorrect, please try again' ,
-				});
-				this.toggleNotification ();
 			}
 		}
   },
@@ -281,10 +301,12 @@ const QuizForm = React.createClass({
           </label>
           <QuestionList questions={ this.props.questions }/>
           <input type="submit" value="Submit and Get Certificate" />
+          <span className={ this.state.incorrectClassname }>{ this.state.numIncorrect } of your answers are incorrect.  Please try again.</span>
         </form>
+        <div className={ this.state.attemptsClassname }>Attempts remaining: { this.maxAttempts - this.props.numAttempts } </div>
         <Notification
           isActive={ this.state.isNotificationActive }
-          message={ this.state.message }
+          message='Please answer all the questions' 
           action='Dismiss'
           onDismiss={ this.toggleNotification }
           dismissAfter = { 3500 }

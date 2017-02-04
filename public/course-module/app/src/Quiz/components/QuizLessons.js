@@ -22,7 +22,7 @@ const QuizLessons = (props) => {
   return (
     <div>
       <h3 className='quiz-lessons'>Lessons included on this quiz:</h3>
-      <ul>
+      <ul className='quiz-lessons-list'>
         { quizLessons }
       </ul>
     </div>

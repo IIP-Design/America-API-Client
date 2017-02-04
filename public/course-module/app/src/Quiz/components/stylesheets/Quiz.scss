@@ -2,10 +2,21 @@
 
 .quiz-question {
 	margin-bottom: 2em;
+
+	ul {
+		padding-left: .8em;
+	}
+
+	li {
+		list-style: none;
+	}
 }
 
 .quiz-questions {
-	margin-top: .5em;
+	margin-top: 1.2em;
+	padding-top: 1.2em;
+	padding-left: 1em;
+	border-top: 1px solid #ddd;
 }
 
 .quiz-question-text {
@@ -17,21 +28,51 @@
 }
 
 .quiz-instructions {
+	padding-top: .8em;
 	margin-bottom: 0;
+	border-top: 1px solid #ddd;
 }
 
 .quiz-msg {
-	font-size: 1em;
-	color: #a1a1a1;
+	margin-top: 5px;
+}
+
+.quiz-hide {
+	visibility: hidden;
+}
+
+.quiz-show {
+	visibility: visible;
+}
+
+.quiz-incorrect {
+	display: inline-block;
+	margin-left: 1em;
+	color: #ba1e2c;
+}
+
+.quiz-attempts {
+	margin-top: 1em;
+	color: #000000;
+	font-weight: bold;
 }
 
 .quiz-agrmt {
 	font-weight: bold;
+	margin-bottom: .3em;
 }
 
 .quiz-lessons {
 	margin-top: 1em;
 	margin-bottom: .5em;
+}
+
+.quiz-lessons-list {
+	padding-left:  1em;
+	
+	li {
+		list-style: none;
+	}
 }
 
 .quiz-button {

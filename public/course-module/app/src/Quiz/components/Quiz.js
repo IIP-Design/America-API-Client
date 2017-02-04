@@ -34,9 +34,9 @@ const Quiz = React.createClass({
 
 		return (
 			<div>
-        <h3 className='quiz-instructions'>Answer all questions correctly to get a certificate.</h3>
-        <p className='quiz-msg'>Five failed attempts to correctly answer all of the questions will return you to the first lesson.</p>
         <QuizLessons lessons={ props.lessons }/>
+        <h3 className='quiz-instructions'>Answer all questions correctly to get a certificate.</h3>
+        <p className='quiz-msg'>Five failed attempts to correctly answer all of the questions will return you to the first lesson.</p> 
         <QuizForm questions={ props.questions } courseName={ props.courseName }/>
       </div>
 		);
