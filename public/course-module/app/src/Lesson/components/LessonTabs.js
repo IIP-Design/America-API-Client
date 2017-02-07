@@ -45,15 +45,28 @@ const LessonTabs = React.createClass({
     return false;
   },
 
+  getResource(resource) {
+     let href, fileinfo;
+
+     if (this.hasProp (resource, 'url')) {
+        href = resource.url; 
+        fileinfo = '';
+      } else {
+       href = resource.src; 
+       fileinfo = `${resource.src_type} (${resource.src_size})`;
+      }
+
+      return (
+        <li key={ shortid.generate() }><a href={ href } target='_blank'>{ resource.title }</a> { fileinfo }</li>
+      )
+  },
+
   render() {
-    let resources;
+    let resources, href, fileinfo;
 
     if (this.props.resources !== false) {
       resources = this.props.resources.map((resource) => {
-        let href = this.hasProp (resource, 'url') ? resource.url : resource.src; 
-        return (
-          <li key={ shortid.generate() }><a href={ href } target='_blank'>{ resource.title }</a></li>
-        );
+        return this.getResource(resource);
       });
     }
 

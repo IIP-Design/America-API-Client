@@ -65,65 +65,65 @@ class America_API_Client_Public {
 	 * @since    1.0.0
 	 */
 
-  public function enqueue_scripts() {
-    global $post;
+	public function enqueue_scripts() {
+		global $post;
 
-    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-      $this->react_enqueue_and_localize();
-    }
-  }
+		if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
+			$this->react_enqueue_and_localize();
+		}
+	}
 
-  /**
-   * Add react-course class to the body element
-   *
-   * @since   1.0.0
-   */
+	/**
+	 * Add react-course class to the body element
+	 *
+	 * @since   1.0.0
+	 */
 
-  public function set_body_class( $classes ) {
-    global $post;
+	public function set_body_class( $classes ) {
+		global $post;
 
-    if ( has_shortcode( $post->post_content, 'course' ) ) {
-      $new_classes = array_merge( $classes, array( 'react-course' ) );
-      return $new_classes;
-    } else {
-      return $classes;
-    }
-  }
-
-
-  /**
-   * Enqueue the hashed React course file and pass the API URL to the script
-   *
-   * @since   1.0.0
-   */
-
-  private function react_enqueue_and_localize() {
-    $url = get_option( 'america_api_client_endpoint_url' );
-
-    if ( $url !== "" ) {
-      $this->enqueue_hashed_file();
-      wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
-    }
-  }
+		if ( has_shortcode( $post->post_content, 'course' ) ) {
+			$new_classes = array_merge( $classes, array( 'react-course' ) );
+			return $new_classes;
+		} else {
+			return $classes;
+		}
+	}
 
 
-  /**
-   * Get the filename, which has a hash added for cache busting
-   *
-   * @since   1.0.0
-   */
+	/**
+	 * Enqueue the hashed React course file and pass the API URL to the script
+	 *
+	 * @since   1.0.0
+	 */
 
-  private function enqueue_hashed_file() {
-    $dir = 'public/course-module/app/dist/';
-    $files = new DirectoryIterator( AMERICA_API_CLIENT_DIR . $dir );
+	private function react_enqueue_and_localize() {
+		$url = get_option( 'america_api_client_endpoint_url' );
 
-    foreach( $files as $file ) {
-      if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'js' ) {
-        $file_name = basename( $file );
-      }
-    }
+		if ( $url !== "" ) {
+			$this->enqueue_hashed_file();
+			wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
+		}
+	}
 
-    wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . $dir . $file_name, array(), null, true );
-    // wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . 'public/course-module/app/src/build/packed.js', array(), null, true ); //used for developement
-  }
+
+	/**
+	 * Get the filename, which has a hash added for cache busting
+	 *
+	 * @since   1.0.0
+	 */
+
+	private function enqueue_hashed_file() {
+		$dir = 'public/course-module/app/dist/';
+		$files = new DirectoryIterator( AMERICA_API_CLIENT_DIR . $dir );
+
+		foreach( $files as $file ) {
+			if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'js' ) {
+				$file_name = basename( $file );
+			}
+		}
+
+		wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . $dir . $file_name, array(), null, true );
+		// wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . 'public/course-module/app/src/build/packed.js', array(), null, true ); //used for developement
+	}
 }
