@@ -1,3 +1,4 @@
 .DS_Store
 *.log
-	public/course-module-ref/
+public/course-module-ref/
+public/course-module/app/src/App/stylesheets/_config.scss

@@ -53,11 +53,11 @@ const LessonTabs = React.createClass({
         fileinfo = '';
       } else {
        href = resource.src; 
-       fileinfo = `${resource.src_type} (${resource.src_size})`;
+       fileinfo = `[${resource.src_type}, ${resource.src_size}]`;
       }
 
       return (
-        <li key={ shortid.generate() }><a href={ href } target='_blank'>{ resource.title }</a> { fileinfo }</li>
+        <li key={ shortid.generate() }><a className='resource-link' href={ href } target='_blank'>{ resource.title }</a><span className='resource-fileinfo'> { fileinfo }</span></li>
       )
   },
 
