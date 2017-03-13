@@ -2,3 +2,4 @@
 *.log
 public/course-module-ref/
 public/course-module/app/src/App/stylesheets/_config.scss
+vendor
