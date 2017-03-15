@@ -8,7 +8,6 @@
             "email": "design@america.gov"
         }
     ],
-    "minimum-stability": "stable",
     "repositories": [
         {
             "type": "git",
@@ -17,6 +16,6 @@
     ],
     "require": {
        "composer/installers": "~1.0",
-       "iip-design/courses-module": "1.0.1"
+       "iip-design/courses-module": "dev-master"
     }
 }
