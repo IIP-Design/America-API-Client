@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0b0423d0abd33c69ceffb90c0e9e5bb2",
-    "content-hash": "68ebd06518e14101a944e667cdf4a6ba",
+    "content-hash": "0abb21acf97c1d08cdd910b92a708df6",
     "packages": [
         {
             "name": "composer/installers",
@@ -112,15 +111,15 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-08-13 20:53:52"
+            "time": "2016-08-13T20:53:52+00:00"
         },
         {
             "name": "iip-design/courses-module",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:IIP-Design/Courses-Module.git",
-                "reference": "5793e72658dde5e92a69be73632d02bbbed4784a"
+                "reference": "1eddfdcee288b47bd70ff044a1c2468c545699e8"
             },
             "type": "library",
             "authors": [
@@ -130,15 +129,13 @@
                 }
             ],
             "description": "\"Frontend view code of the course module\"",
-            "time": "2017-03-10 17:16:31"
+            "time": "2017-03-15T14:27:56+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "iip-design/courses-module": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
