@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0abb21acf97c1d08cdd910b92a708df6",
+    "content-hash": "7d1ed1e8b368361dc81b0c168f736dbd",
     "packages": [
         {
             "name": "composer/installers",
@@ -115,7 +115,7 @@
         },
         {
             "name": "iip-design/courses-module",
-            "version": "1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:IIP-Design/Courses-Module.git",
@@ -129,13 +129,15 @@
                 }
             ],
             "description": "\"Frontend view code of the course module\"",
-            "time": "2017-03-15T14:27:56+00:00"
+            "time": "2017-03-15 14:27:56"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "iip-design/courses-module": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
