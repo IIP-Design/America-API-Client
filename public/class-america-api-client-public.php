@@ -145,7 +145,10 @@ class America_API_Client_Public {
             }
         }
         catch (Exception $e) {
-            echo "ERROR: The courses-module needs to be installed to view this application. PROD/STAGING enviroment: ensure that composer install was run. DEV: make sure that files exist in the app/src/build directory";
+            echo "<strong style='color:red'>ERROR: </strong>The courses-module needs to be installed to view this application<br><br>";
+						echo "On <strong style='color:green'>PROD/STAGING: </strong> enviroment: ensure that composer install was run.<br><br>";
+						echo "On <strong style='color:green'>DEVELOPMENT: </strong>: make sure that files exist in the 'app/src/build' directory.<br>";
+						echo "NOTE: To create the necessary files while in development, run 'npm install' (if first run) and then 'npm run watch' to create the developmental build files<br>";
         }
     }
 }
