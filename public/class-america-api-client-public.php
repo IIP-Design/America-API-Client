@@ -112,9 +112,11 @@ class America_API_Client_Public {
      * @since   2.1.1
      */
 
-    private function get_dir_path() {
+   private function get_dir_path() {
         // check for environemnt
-        if (strpos($_SERVER['HTTP_HOST'], 'america.gov') === false) {
+        $host = $_SERVER['HTTP_HOST'];
+        if (strpos($host, 'america.gov') === false && 
+            strpos($host, 'state.gov') === false) {
            // dev environment
            $dir = plugin_dir_path() . 'vendor/iip-design/courses-module/app/src/build/';
         } else {
@@ -124,6 +126,7 @@ class America_API_Client_Public {
 
         return $dir;
     }
+
 
 
     /**
@@ -145,7 +148,7 @@ class America_API_Client_Public {
             }
         }
         catch (Exception $e) {
-            echo "ERROR: The courses-module needs to be installed to view this application. PROD/STAGING enviroment: ensure that composer install was run. DEV: make sure that files exist in the app/src/build directory";
+            error_log("ERROR: The courses-module needs to be installed to view this application. PROD/STAGING enviroment: ensure that composer install was run. DEV: make sure that files exist in the app/src/build directory");
         }
     }
 }
