@@ -118,15 +118,13 @@ class America_API_Client_Public {
         if (strpos($host, 'america.gov') === false && 
             strpos($host, 'state.gov') === false) {
            // dev environment
-           $dir = plugin_dir_path() . 'vendor/iip-design/courses-module/app/src/build/';
+           $dir = '/src/build/';
         } else {
            // prod or staging environment 
-           $dir = plugin_dir_path() . 'vendor/iip-design/courses-module/app/dist/';
+           $dir = '/dist/';
         }
-
         return $dir;
     }
-
 
 
     /**
@@ -135,16 +133,18 @@ class America_API_Client_Public {
      * @since   1.0.0
      */
 
-    private function enqueue_hashed_file( $dir ) {
+    private function enqueue_hashed_file( $env ) {
+        $url= '/vendor/iip-design/courses-module/app' . $env;
+        $path = dirname(ABSPATH) . $url;
         try {
-            $files = new DirectoryIterator( AMERICA_API_CLIENT_DIR . $dir );
+            $files = new DirectoryIterator( $path );
             foreach( $files as $file ) {
                 if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'js' ) {
                     $file_name = basename( $file );
                 }
             }
             if( !empty($file_name) ) {
-                wp_enqueue_script( $this->plugin_name, AMERICA_API_CLIENT_URL . $dir . $file_name, array(), null, true );
+                wp_enqueue_script( $this->plugin_name, site_url() . $url . $file_name, array(), null, true );
             }
         }
         catch (Exception $e) {
