@@ -73,6 +73,10 @@ class America_API_Client_Public {
         }
     }
 
+    public function enqueue_styles() {
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'america-api-client-public.css', array(), $this->version, 'all' );
+	}
+
     /**
      * Add react-course class to the body element
      *

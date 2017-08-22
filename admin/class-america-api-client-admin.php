@@ -233,6 +233,25 @@ class America_API_Client_Admin {
     return $result;
   }
 
+  public function generate_preloader() {
+    $html = '<div class="preloader">';
+      $html .= '<div class="pl-msg">';
+        $html .= '<image class="pl-msg_svg" src="' . AMERICA_API_CLIENT_URL  . '/public/preloader.svg" />';
+        $html .= '<div class="pl-msg_txt">Just a moment, loading...</div>';
+      $html .= '</div>';
+      $html .= '<div class="pl-header"></div>';
+      $html .= '<div class="pl-course-image"></div>';
+      $html .= '<div class="pl-course-content">';
+        $html .= '<div></div>';
+        $html .= '<div></div>';
+        $html .= '<div></div>';
+        $html .= '<div></div>';
+        $html .= '<div class="pl-course-button"></div>';
+      $html .= '</div>';
+    $html .= '</div>';
+    return  $html;
+  }
+
 
   /**
    * The output of the course shortcode
@@ -243,16 +262,17 @@ class America_API_Client_Admin {
   public function america_api_client_courses_shortcode( $args ) {
     $attr = shortcode_atts( array(
       'id' => '',
-      'exit_page' => ''
+      'exit_page' => '',
+      'language' => 'en'
     ), $args );
 
-    $html = '<div id="course-container" data-course-id="' . $attr['id'] . '"';
+    $html = '<div id="course-container" data-language="'. $attr['language'] . '" data-course-id="' . $attr['id'] . '"';
 
     if ( $attr['exit_page'] !== '' ) {
       $html .= 'data-exit-page="' . $attr['exit_page'] . '"';
     }
 
-    $html .= '></div>';
+    $html .= '>' . $this->generate_preloader() . '</div>';
 
     return $html;
   }
