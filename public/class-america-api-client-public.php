@@ -119,12 +119,12 @@ class America_API_Client_Public {
    private function get_dir_path() {
         // check for environemnt
         $host = $_SERVER['HTTP_HOST'];
-        if (strpos($host, 'america.gov') === false && 
+        if (strpos($host, 'america.gov') === false &&
             strpos($host, 'state.gov') === false) {
            // dev environment
            $dir = '/src/build/';
         } else {
-           // prod or staging environment 
+           // prod or staging environment
            $dir = '/dist/';
         }
         return $dir;
@@ -152,9 +152,9 @@ class America_API_Client_Public {
             }
         }
         catch (Exception $e) {
-            echo "<strong style='color:red'>ERROR: </strong>The courses-module needs to be installed to view this application<br><br>";
-            echo "On <strong style='color:green'>PROD/STAGING: </strong> enviroment: ensure that composer install was run.<br><br>";
-            echo "On <strong style='color:green'>DEVELOPMENT: </strong>: make sure that files exist in the 'app/src/build' directory.<br>";
+            echo "<strong style='color:red'>ERROR:</strong> The courses-module needs to be installed to view this application<br><br>";
+            echo "On <strong style='color:green'>PROD/STAGING:</strong> Ensure that 'composer install' was run.<br><br>";
+            echo "On <strong style='color:green'>DEVELOPMENT:</strong> Make sure that files exist in the 'app/src/build' directory.<br>";
             echo "NOTE: To create the necessary files while in development, run 'npm install' (if first run) and then 'npm run watch' to create the developmental build files<br>";
         }
     }
