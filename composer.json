@@ -10,6 +10,6 @@
     ],
     "require": {
        "composer/installers": "~1.0",
-       "iip-design/courses-module": "v2.0.3"
+       "iip-design/courses-module": "v2.0.4"
     }
 }
