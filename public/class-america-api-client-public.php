@@ -105,57 +105,11 @@ class America_API_Client_Public {
         $url = get_option( 'america_api_client_endpoint_url' );
 
         if ( $url !== "" ) {
-            $this->enqueue_hashed_file( $this->get_dir_path() );
+            $module = 'https://iipdesignmodules.america.gov/modules/cdp-module-course/cdp-module-course.min.js';
+            
+            wp_enqueue_script( 'main-js', plugin_dir_url( __FILE__ ) . 'america-api-client-public.js', array(jquery), null, true );
+            wp_enqueue_script( $this->plugin_name, $module, array(), null, true );
             wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
-        }
-    }
-
-     /**
-     * Get the path to files based on environment
-     *
-     * @since   2.1.1
-     */
-
-   private function get_dir_path() {
-        // check for environemnt
-        $host = $_SERVER['HTTP_HOST'];
-        if (strpos($host, 'america.gov') === false &&
-            strpos($host, 'state.gov') === false) {
-           // dev environment
-           $dir = '/src/build/';
-        } else {
-           // prod or staging environment
-           $dir = '/dist/';
-        }
-        return $dir;
-    }
-
-
-    /**
-     * Get the filename, which has a hash added for cache busting
-     *
-     * @since   1.0.0
-     */
-
-    private function enqueue_hashed_file( $env ) {
-        $url= '/vendor/iip-design/courses-module/app' . $env;
-        $path = dirname(ABSPATH) . $url;
-        try {
-            $files = new DirectoryIterator( $path );
-            foreach( $files as $file ) {
-                if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'js' ) {
-                    $file_name = basename( $file );
-                }
-            }
-            if( !empty($file_name) ) {
-                wp_enqueue_script( $this->plugin_name, site_url() . $url . $file_name, array(), null, true );
-            }
-        }
-        catch (Exception $e) {
-            echo "<strong style='color:red'>ERROR:</strong> The courses-module needs to be installed to view this application<br><br>";
-            echo "On <strong style='color:green'>PROD/STAGING:</strong> Ensure that 'composer install' was run.<br><br>";
-            echo "On <strong style='color:green'>DEVELOPMENT:</strong> Make sure that files exist in the 'app/src/build' directory.<br>";
-            echo "NOTE: To create the necessary files while in development, run 'npm install' (if first run) and then 'npm run watch' to create the developmental build files<br>";
         }
     }
 }

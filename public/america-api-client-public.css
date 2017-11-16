@@ -1,9 +1,32 @@
-.preloader {
+.page-content {
   position: relative;
+}
+
+.course-container {
+  opacity: 0;
+}
+
+.course-placeholder {
+  height: 400px;
+}
+
+.course-fade-in {
+  opacity: 1;
+  -webkit-transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -ms-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+  transition: opacity .5s ease-out;
+}
+
+.plugin-preloader {
+  position: absolute;
+  top: 0;
+  height: 400px;
   width: 100%;
 }
 
-.preloader > div {
+.plugin-preloader > div {
   min-height: 20px;
   margin: 10px;
 }
@@ -73,4 +96,10 @@
   height: 35px;
   margin-top: 25px;
   background-color: #eee;
+}
+
+.pl-fade {
+	animation-name: fade;
+	animation-timing-function: ease-in-out;
+	animation-duration: 1s;
 }

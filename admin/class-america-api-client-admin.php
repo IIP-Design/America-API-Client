@@ -234,7 +234,7 @@ class America_API_Client_Admin {
   }
 
   public function generate_preloader() {
-    $html = '<div class="preloader">';
+    $html = '<div class="plugin-preloader">';
       $html .= '<div class="pl-msg">';
         $html .= '<image class="pl-msg_svg" src="' . AMERICA_API_CLIENT_URL  . '/public/preloader.svg" />';
         $html .= '<div class="pl-msg_txt">Just a moment, loading...</div>';
@@ -266,13 +266,14 @@ class America_API_Client_Admin {
       'language' => 'en'
     ), $args );
 
-    $html = '<div id="course-container" data-language="'. $attr['language'] . '" data-course-id="' . $attr['id'] . '"';
-
+    $html =  $this->generate_preloader();
+    $html .=  '<div class="course-placeholder"></div>';
+    $html .= '<div id="course-container" class="course-container" data-language="'. $attr['language'] . '" data-course-id="' . $attr['id'] . '"';
+ 
     if ( $attr['exit_page'] !== '' ) {
       $html .= 'data-exit-page="' . $attr['exit_page'] . '"';
     }
-
-    $html .= '>' . $this->generate_preloader() . '</div>';
+    $html .= '></div>';
 
     return $html;
   }
