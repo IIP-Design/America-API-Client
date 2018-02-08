@@ -107,7 +107,7 @@ class America_API_Client_Public {
         if ( $url !== "" ) {
             $module = 'https://iipdesignmodules.america.gov/modules/cdp-module-course/cdp-module-course.min.js';
             
-            wp_enqueue_script( 'main-js', plugin_dir_url( __FILE__ ) . 'america-api-client-public.js', array(jquery), null, true );
+            wp_enqueue_script( 'main-js', plugin_dir_url( __FILE__ ) . 'america-api-client-public.js', array('jquery'), null, true );
             wp_enqueue_script( $this->plugin_name, $module, array(), null, true );
             wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
         }
