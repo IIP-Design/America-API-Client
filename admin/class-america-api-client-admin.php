@@ -236,7 +236,7 @@ class America_API_Client_Admin {
   public function generate_preloader() {
     $html = '<div class="plugin-preloader">';
       $html .= '<div class="pl-msg">';
-        $html .= '<image class="pl-msg_svg" src="' . AMERICA_API_CLIENT_URL  . '/public/preloader.svg" />';
+        $html .= '<img class="pl-msg_svg" src="' . AMERICA_API_CLIENT_URL  . '/public/preloader.svg" />';
         $html .= '<div class="pl-msg_txt">Just a moment, loading...</div>';
       $html .= '</div>';
       $html .= '<div class="pl-header"></div>';
@@ -271,7 +271,7 @@ class America_API_Client_Admin {
     $html .= '<div id="course-container" class="course-container" data-language="'. $attr['language'] . '" data-course-id="' . $attr['id'] . '"';
  
     if ( $attr['exit_page'] !== '' ) {
-      $html .= 'data-exit-page="' . $attr['exit_page'] . '"';
+      $html .= ' data-exit-page="' . $attr['exit_page'] . '"';
     }
     $html .= '></div>';
 
