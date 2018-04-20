@@ -105,10 +105,24 @@ class America_API_Client_Public {
         $url = get_option( 'america_api_client_endpoint_url' );
 
         if ( $url !== "" ) {
-            $module = 'https://iipdesignmodules.america.gov/modules/cdp-module-course/cdp-module-course.min.js';
+            $module_path = 'https://iip-design-dev-modules.s3.amazonaws.com/modules/cdp-module-course/';
+
+            /**
+             * React app entry files
+             */
+            // vendor packages shared by the app & lesson components
+            $shared_vendors_1 = $module_path . 'vendors-app-lesson.bundle.js';
+
+            // vendor packages shared by the app, lesson, & quiz components
+            $shared_vendors_2 = $module_path . 'vendors-app-lesson-quiz.bundle.js';
+
+            // the React app
+            $react_app = $module_path . 'app.bundle.js';
             
             wp_enqueue_script( 'main-js', plugin_dir_url( __FILE__ ) . 'america-api-client-public.js', array('jquery'), null, true );
-            wp_enqueue_script( $this->plugin_name, $module, array(), null, true );
+            wp_enqueue_script( 'shared-vendors-1', $shared_vendors_1, array(), null, true );
+            wp_enqueue_script( 'shared-vendors-2', $shared_vendors_2, array(), null, true );
+            wp_enqueue_script( 'react-app', $react_app, array(), null, true );
             wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
         }
     }
