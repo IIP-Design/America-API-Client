@@ -111,18 +111,22 @@ class America_API_Client_Public {
              * React app entry files
              */
             // vendor packages shared by the app & lesson components
-            $shared_vendors_1 = $module_path . 'vendors-app-lesson.bundle.js';
+            $shared_vendors_1 = $module_path . 'cdp-course-vendors-app-lesson.js';
 
             // vendor packages shared by the app, lesson, & quiz components
-            $shared_vendors_2 = $module_path . 'vendors-app-lesson-quiz.bundle.js';
+            $shared_vendors_2 = $module_path . 'cdp-course-vendors-app-lesson-quiz.js';
 
             // the React app
-            $react_app = $module_path . 'app.bundle.js';
+            $react_app = $module_path . 'cdp-course-app.js';
+
+            // the React app stylesheet
+            $react_app_styles = $module_path . 'cdp-course-app.css';
             
             wp_enqueue_script( 'main-js', plugin_dir_url( __FILE__ ) . 'america-api-client-public.js', array('jquery'), null, true );
-            wp_enqueue_script( 'shared-vendors-1', $shared_vendors_1, array(), null, true );
-            wp_enqueue_script( 'shared-vendors-2', $shared_vendors_2, array(), null, true );
-            wp_enqueue_script( 'react-app', $react_app, array(), null, true );
+            wp_enqueue_script( 'cdp-course-vendors-js-1', $shared_vendors_1, array(), null, true );
+            wp_enqueue_script( 'cpd-course-vendors-js-2', $shared_vendors_2, array(), null, true );
+            wp_enqueue_script( 'cdp-course-js', $react_app, array(), null, true );
+            wp_enqueue_style( 'cdp-course-styles', $react_app_styles, array(), null );
             wp_localize_script( $this->plugin_name, 'args', array( 'url' => $url ) );
         }
     }
