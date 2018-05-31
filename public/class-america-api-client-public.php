@@ -113,7 +113,7 @@ class America_API_Client_Public {
 
             // vendor packages shared by the app, lesson, & quiz components
             $shared_vendors_1 = $module_path . 'cdp-course-vendors-app-lesson-quiz.js';
-            $shared_vendors_2 = $module_path . 'cdp-course-vendors-QuizFormContainer-app.js';
+            $shared_vendors_2 = $module_path . 'cdp-course-vendors-app.js';
 
             // the React app
             $react_app = $module_path . 'cdp-course-app.js';
