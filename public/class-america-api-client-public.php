@@ -105,7 +105,7 @@ class America_API_Client_Public {
         $url = get_option( 'america_api_client_endpoint_url' );
 
         if ( $url !== "" ) {
-            $module_path = 'https://iipdesignmodules.america.gov/modules/cdp-module-course/v2.2.0/';
+            $module_path = 'https://iip-design-dev-modules.s3.amazonaws.com/modules/cdp-module-course/';
 
             /**
              * React app entry files
